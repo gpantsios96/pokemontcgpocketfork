@@ -103,25 +103,25 @@ header h1 {
 /* Rotating Spotlight Section */
 .rotating-spotlight {
     padding: 32px 0;
-    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
-    border-top: 3px solid #06b6d4;
-    border-bottom: 3px solid #06b6d4;
+    background-color: #f8fafc;
+    border-top: 2px solid #e2e8f0;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 .rotating-title {
-    font-size: 24px;
-    color: #0e7490;
+    font-size: 22px;
+    color: #0f172a;
     margin-bottom: 8px;
     text-align: center;
     font-weight: 700;
 }
 
 .rotating-subtitle {
-    font-size: 15px;
-    color: #0891b2;
+    font-size: 14px;
+    color: #64748b;
     margin-bottom: 24px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* Featured Section */
@@ -211,81 +211,49 @@ header h1 {
 
 /* Rotating Spotlight Card */
 .electrician-card-rotating {
-    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-    border-left: 5px solid #14b8a6;
-    border-top: 2px solid #5eead4;
-    border-right: 2px solid #5eead4;
-    border-bottom: 2px solid #5eead4;
-    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.electrician-card-rotating::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #14b8a6, #06b6d4, #14b8a6);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+    background: linear-gradient(to bottom, #f0f9ff, #ffffff);
+    border-left: 4px solid #0ea5e9;
+    border-top: 1px solid #e0f2fe;
+    border-right: 1px solid #e0f2fe;
+    border-bottom: 1px solid #e0f2fe;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .electrician-card-rotating:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Rotating Badge Container */
 .rotating-badge-container {
     display: flex;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     align-items: center;
 }
 
 .rotating-badge {
     display: inline-block;
-    padding: 8px 14px;
-    background: linear-gradient(135deg, #14b8a6, #06b6d4);
+    padding: 4px 12px;
+    background-color: #0ea5e9;
     color: white;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(20, 184, 166, 0.3);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.8;
-    }
+    font-weight: 600;
 }
 
 .rotating-countdown {
     display: inline-block;
-    padding: 6px 12px;
-    background-color: #0891b2;
-    color: white;
+    padding: 4px 10px;
+    background-color: #f0f9ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
     border-radius: 6px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .electrician-name {

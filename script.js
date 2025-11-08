@@ -133,6 +133,7 @@ function handleSearch() {
         const rotatingList = document.getElementById('rotatingList');
         if (filteredRotating.length > 0) {
             const hoursRemaining = getRotationHoursRemaining();
+            const hoursText = hoursRemaining === 1 ? 'ώρα' : 'ώρες';
             const cardsHTML = filteredRotating.map(electrician => {
                 const servicesHTML = electrician.services
                     .map(service => `<span class="service-badge">${service}</span>`)
@@ -141,7 +142,7 @@ function handleSearch() {
                     <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
                         <div class="rotating-badge-container">
                             <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
-                            <span class="rotating-countdown">⏱️ Ακόμα ${hoursRemaining}h</span>
+                            <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                         </div>
                         <h3 class="electrician-name">${electrician.name}</h3>
                         <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
@@ -274,6 +275,7 @@ function displayRotatingElectricians() {
 
     // Get hours remaining
     const hoursRemaining = getRotationHoursRemaining();
+    const hoursText = hoursRemaining === 1 ? 'ώρα' : 'ώρες';
 
     // Create HTML for rotating cards
     const cardsHTML = rotatingElectricians.map(electrician => {
@@ -285,7 +287,7 @@ function displayRotatingElectricians() {
             <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
                 <div class="rotating-badge-container">
                     <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
-                    <span class="rotating-countdown">⏱️ Ακόμα ${hoursRemaining}h</span>
+                    <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                 </div>
                 <h3 class="electrician-name">${electrician.name}</h3>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
