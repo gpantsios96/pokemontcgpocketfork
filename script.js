@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     setupSearchFunctionality();
     setupClickTracking();
+    loadElectricians();
 }
 
 // Search functionality
@@ -68,7 +69,25 @@ function trackClick(elementType, elementIdentifier) {
     // This could send data to analytics service
 }
 
-// Helper function to display electricians (placeholder for future use)
+// Load electricians from JSON file
+async function loadElectricians() {
+    try {
+        const response = await fetch('electricians.json');
+
+        if (!response.ok) {
+            throw new Error('Αποτυχία φόρτωσης δεδομένων');
+        }
+
+        const electricians = await response.json();
+        displayElectricians(electricians);
+    } catch (error) {
+        console.error('Σφάλμα:', error);
+        const electriciansList = document.getElementById('electriciansList');
+        electriciansList.innerHTML = '<p class="placeholder-text">Σφάλμα φόρτωσης δεδομένων</p>';
+    }
+}
+
+// Display electricians as cards
 function displayElectricians(electricians) {
     const electriciansList = document.getElementById('electriciansList');
 
@@ -77,6 +96,33 @@ function displayElectricians(electricians) {
         return;
     }
 
-    // TODO: Implement actual electrician card rendering
-    console.log('Εμφάνιση ηλεκτρολόγων:', electricians.length);
+    // Create HTML for each electrician card
+    const cardsHTML = electricians.map(electrician => {
+        const servicesHTML = electrician.services
+            .map(service => `<span class="service-badge">${service}</span>`)
+            .join('');
+
+        return `
+            <div class="electrician-card">
+                <h3 class="electrician-name">${electrician.name}</h3>
+                <a href="tel:${electrician.phone}" class="electrician-phone" onclick="trackPhoneClick(${electrician.id})">
+                    ${electrician.phone}
+                </a>
+                <p class="electrician-neighborhood">${electrician.neighborhood}</p>
+                <div class="services-container">
+                    ${servicesHTML}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    electriciansList.innerHTML = cardsHTML;
+}
+
+// Track phone click
+function trackPhoneClick(electricianId) {
+    console.log('Κλικ στο τηλέφωνο - Ηλεκτρολόγος ID:', electricianId);
+    trackClick('phone', electricianId);
+
+    // TODO: Update analytics in backend/database
 }
