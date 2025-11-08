@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Κώστας Ηλεκτρολογικές",
+    "phone": "2310-456789",
+    "neighborhood": "Καλαμαριά",
+    "services": ["Επισκευές", "Εγκαταστάσεις", "24ωρη"],
+    "tier": "free",
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 2,
+    "name": "Νίκος Παπαδόπουλος - Ηλεκτρολόγος",
+    "phone": "2310-523456",
+    "neighborhood": "Πανόραμα",
+    "services": ["Επισκευές", "Εγκαταστάσεις"],
+    "tier": "free",
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 3,
+    "name": "Γιώργος Ηλεκτρικές Εγκαταστάσεις",
+    "phone": "2310-678123",
+    "neighborhood": "Πυλαία",
+    "services": ["Εγκαταστάσεις", "24ωρη"],
+    "tier": "free",
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 4,
+    "name": "Δημήτρης Βασιλείου - Ηλεκτρολόγος",
+    "phone": "2310-789456",
+    "neighborhood": "Καλαμαριά",
+    "services": ["Επισκευές"],
+    "tier": "free",
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 5,
+    "name": "Αντώνης Θεοδώρου Ηλεκτρολογικά",
+    "phone": "2310-834567",
+    "neighborhood": "Πανόραμα",
+    "services": ["Επισκευές", "Εγκαταστάσεις", "24ωρη"],
+    "tier": "free",
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  }
+]
