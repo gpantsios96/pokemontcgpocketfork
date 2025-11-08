@@ -167,7 +167,7 @@ function getTierBadge(tier) {
     if (tier === 'premium') {
         return `
             <div class="tier-badges">
-                <span class="tier-badge tier-premium">⭐⭐ PREMIUM</span>
+                <span class="tier-badge tier-premium">⭐⭐ ΚΟΡΥΦΑΙΟΣ</span>
                 <span class="verified-badge">✓ ΕΠΑΛΗΘΕΥΜΕΝΟΣ</span>
             </div>
         `;
@@ -233,7 +233,7 @@ function displayElectricians(electricians, searchTerm = '') {
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
-                    ${electrician.phone}
+                    📞 Κλείστε Ραντεβού
                 </a>
                 <p class="electrician-neighborhood">${electrician.neighborhood}</p>
                 <div class="services-container">
