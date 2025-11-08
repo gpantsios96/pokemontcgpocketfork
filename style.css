@@ -358,9 +358,22 @@ header h1 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid #e5e7eb;
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .electrician-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Card link wrapper - makes entire card clickable */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover .electrician-card {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
@@ -465,6 +478,8 @@ header h1 {
     margin: 12px 0;
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     gap: 8px;
+    position: relative;
+    z-index: 10;
 }
 
 .electrician-phone:active {
@@ -577,6 +592,7 @@ header h1 {
    FOOTER
    ========================================== */
 
+/* Simple footer (for pages with basic footer) */
 footer {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
     color: white;
@@ -587,6 +603,83 @@ footer {
 
 footer p {
     font-size: 14px;
+}
+
+/* Comprehensive site footer */
+.site-footer {
+    background: #1f2937;
+    color: #f3f4f6;
+    padding: 40px 16px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #60a5fa;
+}
+
+.footer-links a:active {
+    color: #3b82f6;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-section p {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* ==========================================
@@ -1209,6 +1302,8 @@ button:focus, a:focus, input:focus {
     margin: 12px 0;
     border: none;
     transition: all 0.2s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .btn-view-profile:active {

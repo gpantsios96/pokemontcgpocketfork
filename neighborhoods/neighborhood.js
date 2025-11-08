@@ -215,13 +215,13 @@ function displayElectricianCards(electricians) {
         const tierBadge = getTierBadge(electrician.tier);
 
         return `
-            <div class="electrician-card ${tierClass}">
+            <div class="electrician-card ${tierClass}" onclick="window.location.href='../electrician-detail.html?id=${electrician.id}'">
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
-                <a href="../electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                <a href="../electrician-detail.html?id=${electrician.id}" class="btn-view-profile" onclick="event.stopPropagation()">
                     👤 Δείτε Προφίλ
                 </a>
-                <a href="tel:${electrician.phone}" class="electrician-phone">
+                <a href="tel:${electrician.phone}" class="electrician-phone" onclick="event.stopPropagation()">
                     📞 Κλείστε Ραντεβού
                 </a>
                 <p class="electrician-neighborhood">${electrician.neighborhood}</p>

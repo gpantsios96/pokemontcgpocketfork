@@ -139,13 +139,13 @@ function handleSearch() {
                     .map(service => `<span class="service-badge">${service}</span>`)
                     .join('');
                 return `
-                    <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
+                    <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}" onclick="window.location.href='electrician-detail.html?id=${electrician.id}'">
                         <div class="rotating-badge-container">
                             <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
                             <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                         </div>
                         <h3 class="electrician-name">${electrician.name}</h3>
-                        <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                        <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile" onclick="event.stopPropagation()">
                             👤 Δείτε Προφίλ
                         </a>
                         <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
@@ -287,13 +287,13 @@ function displayRotatingElectricians() {
             .join('');
 
         return `
-            <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
+            <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}" onclick="window.location.href='electrician-detail.html?id=${electrician.id}'">
                 <div class="rotating-badge-container">
                     <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
                     <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                 </div>
                 <h3 class="electrician-name">${electrician.name}</h3>
-                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile" onclick="event.stopPropagation()">
                     👤 Δείτε Προφίλ
                 </a>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
@@ -345,10 +345,10 @@ function displayElectricians(electricians, searchTerm = '') {
         const premiumStats = getPremiumStatsHTML(electrician);
 
         return `
-            <div class="electrician-card ${tierClass}" data-electrician-id="${electrician.id}">
+            <div class="electrician-card ${tierClass}" data-electrician-id="${electrician.id}" onclick="window.location.href='electrician-detail.html?id=${electrician.id}'">
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
-                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile" onclick="event.stopPropagation()">
                     👤 Δείτε Προφίλ
                 </a>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
@@ -397,6 +397,8 @@ function setupViewTracking() {
 
 // Handle phone click with confirmation and tracking
 function handlePhoneClick(event, electricianId, phoneNumber) {
+    // Stop propagation to prevent card click
+    event.stopPropagation();
     // Prevent default action temporarily
     event.preventDefault();
 

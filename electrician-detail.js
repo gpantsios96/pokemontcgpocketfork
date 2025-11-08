@@ -72,6 +72,31 @@ function updateBreadcrumb(electrician) {
     if (breadcrumbName) {
         breadcrumbName.textContent = electrician.name;
     }
+
+    // Update neighborhood link
+    const breadcrumbNeighborhood = document.getElementById('breadcrumb-neighborhood');
+    if (breadcrumbNeighborhood) {
+        const neighborhoodSlug = getNeighborhoodSlug(electrician.neighborhood);
+        breadcrumbNeighborhood.href = `neighborhoods/${neighborhoodSlug}.html`;
+        breadcrumbNeighborhood.textContent = electrician.neighborhood;
+    }
+}
+
+// Convert Greek neighborhood name to URL slug
+function getNeighborhoodSlug(neighborhood) {
+    const slugMap = {
+        'Καλαμαριά': 'kalamaria',
+        'Πανόραμα': 'panorama',
+        'Πυλαία': 'pylaia',
+        'Εύοσμος': 'evosmos',
+        'Νεάπολη': 'neapoli',
+        'Τούμπα': 'toumba',
+        'Θέρμη': 'thermi',
+        'Συκιές': 'sykies',
+        'Σταυρούπολη': 'stavroupoli',
+        'Κέντρο': 'kentro'
+    };
+    return slugMap[neighborhood] || 'kalamaria';
 }
 
 // Get tier badge HTML
@@ -213,10 +238,10 @@ function populateSimilarElectricians(electricians, currentElectrician) {
         const tierBadge = getTierBadgeHTML(electrician.tier);
 
         return `
-            <div class="electrician-card ${tierClass}">
+            <div class="electrician-card ${tierClass}" onclick="window.location.href='electrician-detail.html?id=${electrician.id}'">
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
-                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile" onclick="event.stopPropagation()">
                     👤 Δείτε Προφίλ
                 </a>
                 <p class="electrician-neighborhood">${electrician.neighborhood}</p>
