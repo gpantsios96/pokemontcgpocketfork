@@ -218,6 +218,9 @@ function displayElectricianCards(electricians) {
             <div class="electrician-card ${tierClass}">
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
+                <a href="../electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                    👤 Δείτε Προφίλ
+                </a>
                 <a href="tel:${electrician.phone}" class="electrician-phone">
                     📞 Κλείστε Ραντεβού
                 </a>

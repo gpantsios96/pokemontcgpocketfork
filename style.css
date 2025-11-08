@@ -747,3 +747,526 @@ button:focus, a:focus, input:focus {
 @media (prefers-color-scheme: dark) {
     /* Keep light mode for now - directory sites work better in light mode */
 }
+
+/* ==========================================
+   DETAIL PAGE STYLES
+   ========================================== */
+
+/* Detail Header */
+.detail-header {
+    background: white;
+    padding: 24px 0;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.detail-header-content {
+    text-align: center;
+}
+
+.detail-title {
+    font-size: 26px;
+    color: #1e40af;
+    margin: 16px 0 8px 0;
+    line-height: 1.2;
+}
+
+.detail-location {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+/* Large Call Button - HUGE and Prominent */
+.btn-call-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 80px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateZ(0);
+}
+
+.btn-call-large:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.phone-icon {
+    font-size: 32px;
+}
+
+.call-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.call-label {
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.call-number {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Quick Info Section */
+.quick-info-section {
+    padding: 24px 0;
+    background: #f9fafb;
+}
+
+.quick-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.quick-info-card {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.info-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Detail Services */
+.detail-services {
+    padding: 32px 0;
+    background: white;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.services-badges-large {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.service-badge-large {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 2px solid #2563eb;
+    color: #1e40af;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* Public Stats Section (Premium Only) */
+.public-stats-section {
+    padding: 32px 0;
+    background: #f9fafb;
+}
+
+.public-stats-card {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border: 3px solid #8b5cf6;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+}
+
+.stats-title {
+    font-size: 22px;
+    color: #6b21a8;
+    margin-bottom: 8px;
+}
+
+.stats-subtitle {
+    font-size: 14px;
+    color: #7c3aed;
+    margin-bottom: 24px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #a78bfa;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    color: #6b21a8;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+/* Detail FAQ */
+.detail-faq {
+    padding: 32px 0;
+    background: white;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 32px 0;
+    background: #f9fafb;
+}
+
+.contact-form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 2px solid #e5e7eb;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    height: 56px;
+    transition: all 0.2s;
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+.form-message {
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #10b981;
+}
+
+/* Similar Section */
+.similar-section {
+    padding: 32px 0;
+    background: white;
+}
+
+/* View Profile Button */
+.btn-view-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 12px 0;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-view-profile:active {
+    transform: scale(0.98);
+}
+
+/* Bottom CTA Bar (Mobile Only) */
+.bottom-cta-bar {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 2px solid #e5e7eb;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    padding: 12px 16px;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+    display: block;
+}
+
+.bottom-cta-bar.visible {
+    bottom: 0;
+}
+
+.bottom-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bottom-cta-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.bottom-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-phone {
+    font-size: 12px;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-call-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.bottom-call-btn:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   DETAIL PAGE - RESPONSIVE: TABLETS (768px+)
+   ========================================== */
+
+@media (min-width: 768px) {
+    .detail-title {
+        font-size: 32px;
+    }
+
+    .detail-location {
+        font-size: 18px;
+    }
+
+    .btn-call-large {
+        height: 88px;
+        font-size: 20px;
+    }
+
+    .call-number {
+        font-size: 26px;
+    }
+
+    .quick-info-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    .quick-info-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .info-icon {
+        font-size: 32px;
+    }
+
+    .service-badge-large {
+        font-size: 18px;
+        padding: 16px 28px;
+    }
+
+    .stats-title {
+        font-size: 26px;
+    }
+
+    .stats-subtitle {
+        font-size: 16px;
+    }
+
+    .stat-number {
+        font-size: 42px;
+    }
+
+    .stat-label {
+        font-size: 16px;
+    }
+
+    .contact-form-card {
+        padding: 32px;
+    }
+
+    /* Hide bottom CTA bar on tablets and desktop */
+    .bottom-cta-bar {
+        display: none;
+    }
+}
+
+/* ==========================================
+   DETAIL PAGE - RESPONSIVE: DESKTOP (1024px+)
+   ========================================== */
+
+@media (min-width: 1024px) {
+    .detail-title {
+        font-size: 36px;
+    }
+
+    .btn-call-large {
+        height: 96px;
+    }
+
+    .btn-call-large:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-call-large:active {
+        transform: translateY(0);
+    }
+
+    .quick-info-card:hover {
+        border-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+    }
+
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-submit:active {
+        transform: translateY(0);
+    }
+
+    .btn-view-profile:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-view-profile:active {
+        transform: translateY(0);
+    }
+}

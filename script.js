@@ -145,6 +145,9 @@ function handleSearch() {
                             <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                         </div>
                         <h3 class="electrician-name">${electrician.name}</h3>
+                        <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                            👤 Δείτε Προφίλ
+                        </a>
                         <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
                             📞 Κλείστε Ραντεβού
                         </a>
@@ -290,6 +293,9 @@ function displayRotatingElectricians() {
                     <span class="rotating-countdown">Σε προβολή για ακόμα ${hoursRemaining} ${hoursText}</span>
                 </div>
                 <h3 class="electrician-name">${electrician.name}</h3>
+                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                    👤 Δείτε Προφίλ
+                </a>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
                     📞 Κλείστε Ραντεβού
                 </a>
@@ -342,6 +348,9 @@ function displayElectricians(electricians, searchTerm = '') {
             <div class="electrician-card ${tierClass}" data-electrician-id="${electrician.id}">
                 ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
+                <a href="electrician-detail.html?id=${electrician.id}" class="btn-view-profile">
+                    👤 Δείτε Προφίλ
+                </a>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
                     📞 Κλείστε Ραντεβού
                 </a>
