@@ -100,6 +100,30 @@ header h1 {
     transform: scale(0.98);
 }
 
+/* Rotating Spotlight Section */
+.rotating-spotlight {
+    padding: 32px 0;
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+    border-top: 3px solid #06b6d4;
+    border-bottom: 3px solid #06b6d4;
+}
+
+.rotating-title {
+    font-size: 24px;
+    color: #0e7490;
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.rotating-subtitle {
+    font-size: 15px;
+    color: #0891b2;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 500;
+}
+
 /* Featured Section */
 .featured {
     padding: 32px 0;
@@ -183,6 +207,85 @@ header h1 {
 .electrician-card-free {
     background-color: white;
     border: 1px solid #e5e7eb;
+}
+
+/* Rotating Spotlight Card */
+.electrician-card-rotating {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border-left: 5px solid #14b8a6;
+    border-top: 2px solid #5eead4;
+    border-right: 2px solid #5eead4;
+    border-bottom: 2px solid #5eead4;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.electrician-card-rotating::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #14b8a6, #06b6d4, #14b8a6);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.electrician-card-rotating:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.3);
+}
+
+/* Rotating Badge Container */
+.rotating-badge-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.rotating-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #14b8a6, #06b6d4);
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(20, 184, 166, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.rotating-countdown {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #0891b2;
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .electrician-name {

@@ -112,6 +112,57 @@ function handleSearch() {
     const searchTerm = searchInput.value.trim();
 
     const filteredElectricians = filterElectricians(searchTerm);
+
+    // If searching, also filter rotating electricians
+    if (searchTerm) {
+        const rotatingIds = getRotatingElectricianIds();
+        const rotatingElectricians = allElectricians.filter(e => rotatingIds.includes(e.id));
+        const filteredRotating = rotatingElectricians.filter(e => {
+            const normalizedSearch = normalizeGreekText(searchTerm);
+            const normalizedName = normalizeGreekText(e.name);
+            const normalizedNeighborhood = normalizeGreekText(e.neighborhood);
+            const servicesMatch = e.services.some(service =>
+                normalizeGreekText(service).includes(normalizedSearch)
+            );
+            return normalizedName.includes(normalizedSearch) ||
+                   normalizedNeighborhood.includes(normalizedSearch) ||
+                   servicesMatch;
+        });
+
+        // Update rotating list with filtered results
+        const rotatingList = document.getElementById('rotatingList');
+        if (filteredRotating.length > 0) {
+            const hoursRemaining = getRotationHoursRemaining();
+            const cardsHTML = filteredRotating.map(electrician => {
+                const servicesHTML = electrician.services
+                    .map(service => `<span class="service-badge">${service}</span>`)
+                    .join('');
+                return `
+                    <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
+                        <div class="rotating-badge-container">
+                            <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
+                            <span class="rotating-countdown">⏱️ Ακόμα ${hoursRemaining}h</span>
+                        </div>
+                        <h3 class="electrician-name">${electrician.name}</h3>
+                        <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
+                            📞 Κλείστε Ραντεβού
+                        </a>
+                        <p class="electrician-neighborhood">${electrician.neighborhood}</p>
+                        <div class="services-container">
+                            ${servicesHTML}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            rotatingList.innerHTML = cardsHTML;
+        } else {
+            rotatingList.innerHTML = '';
+        }
+    } else {
+        // No search term, restore rotating electricians
+        displayRotatingElectricians();
+    }
+
     displayElectricians(filteredElectricians, searchTerm);
 
     console.log('Αναζήτηση για:', searchTerm, '- Βρέθηκαν:', filteredElectricians.length);
@@ -153,7 +204,14 @@ async function loadElectricians() {
         }
 
         allElectricians = await response.json();
-        // Display electricians sorted by tier
+
+        // Initialize rotation system
+        initializeRotation(allElectricians);
+
+        // Display rotating electricians separately
+        displayRotatingElectricians();
+
+        // Display remaining electricians sorted by tier
         displayElectricians(sortElectriciansByTier(allElectricians));
     } catch (error) {
         console.error('Σφάλμα:', error);
@@ -201,11 +259,61 @@ function getPremiumStatsHTML(electrician) {
     `;
 }
 
-// Display electricians as cards
+// Display rotating electricians in spotlight section
+function displayRotatingElectricians() {
+    const rotatingList = document.getElementById('rotatingList');
+    const rotatingIds = getRotatingElectricianIds();
+
+    if (rotatingIds.length === 0) {
+        rotatingList.innerHTML = '<p class="placeholder-text">Δεν υπάρχουν ηλεκτρολόγοι σε προβολή αυτή τη στιγμή</p>';
+        return;
+    }
+
+    // Get rotating electricians
+    const rotatingElectricians = allElectricians.filter(e => rotatingIds.includes(e.id));
+
+    // Get hours remaining
+    const hoursRemaining = getRotationHoursRemaining();
+
+    // Create HTML for rotating cards
+    const cardsHTML = rotatingElectricians.map(electrician => {
+        const servicesHTML = electrician.services
+            .map(service => `<span class="service-badge">${service}</span>`)
+            .join('');
+
+        return `
+            <div class="electrician-card electrician-card-rotating" data-electrician-id="${electrician.id}">
+                <div class="rotating-badge-container">
+                    <span class="rotating-badge">📍 ΣΕ ΠΡΟΒΟΛΗ</span>
+                    <span class="rotating-countdown">⏱️ Ακόμα ${hoursRemaining}h</span>
+                </div>
+                <h3 class="electrician-name">${electrician.name}</h3>
+                <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
+                    📞 Κλείστε Ραντεβού
+                </a>
+                <p class="electrician-neighborhood">${electrician.neighborhood}</p>
+                <div class="services-container">
+                    ${servicesHTML}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    rotatingList.innerHTML = cardsHTML;
+
+    // Setup view tracking for rotating cards
+    setupViewTracking();
+}
+
+// Display electricians as cards (excluding rotating ones)
 function displayElectricians(electricians, searchTerm = '') {
     const electriciansList = document.getElementById('electriciansList');
 
-    if (!electricians || electricians.length === 0) {
+    // Exclude rotating electricians from main list
+    const rotatingIds = getRotatingElectricianIds();
+    const filteredElectricians = electricians.filter(e => !rotatingIds.includes(e.id));
+
+    if (!filteredElectricians || filteredElectricians.length === 0) {
         const message = searchTerm
             ? '<p class="placeholder-text">Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σας</p>'
             : '<p class="placeholder-text">Δεν βρέθηκαν ηλεκτρολόγοι</p>';
@@ -215,11 +323,11 @@ function displayElectricians(electricians, searchTerm = '') {
 
     // Show results count
     const countHTML = searchTerm
-        ? `<p class="search-results-count">Βρέθηκαν ${electricians.length} ${electricians.length === 1 ? 'ηλεκτρολόγος' : 'ηλεκτρολόγοι'}</p>`
+        ? `<p class="search-results-count">Βρέθηκαν ${filteredElectricians.length} ${filteredElectricians.length === 1 ? 'ηλεκτρολόγος' : 'ηλεκτρολόγοι'}</p>`
         : '';
 
     // Create HTML for each electrician card
-    const cardsHTML = electricians.map(electrician => {
+    const cardsHTML = filteredElectricians.map(electrician => {
         const servicesHTML = electrician.services
             .map(service => `<span class="service-badge">${service}</span>`)
             .join('');
