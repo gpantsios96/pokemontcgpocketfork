@@ -1,6 +1,7 @@
 // Global state
 let allElectricians = [];
 let searchDebounceTimer = null;
+let viewedElectricians = new Set(); // Track which cards have been viewed
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -167,9 +168,9 @@ function displayElectricians(electricians, searchTerm = '') {
             .join('');
 
         return `
-            <div class="electrician-card">
+            <div class="electrician-card" data-electrician-id="${electrician.id}">
                 <h3 class="electrician-name">${electrician.name}</h3>
-                <a href="tel:${electrician.phone}" class="electrician-phone" onclick="trackPhoneClick(${electrician.id})">
+                <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
                     ${electrician.phone}
                 </a>
                 <p class="electrician-neighborhood">${electrician.neighborhood}</p>
@@ -181,12 +182,62 @@ function displayElectricians(electricians, searchTerm = '') {
     }).join('');
 
     electriciansList.innerHTML = countHTML + cardsHTML;
+
+    // Setup view tracking for all cards
+    setupViewTracking();
 }
 
-// Track phone click
-function trackPhoneClick(electricianId) {
-    console.log('Κλικ στο τηλέφωνο - Ηλεκτρολόγος ID:', electricianId);
+// Setup view tracking using Intersection Observer
+function setupViewTracking() {
+    const cards = document.querySelectorAll('.electrician-card');
+
+    // Create Intersection Observer to track when cards are viewed
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const electricianId = parseInt(card.dataset.electricianId);
+
+                // Only track each card once per session
+                if (!viewedElectricians.has(electricianId)) {
+                    viewedElectricians.add(electricianId);
+                    trackListingView(electricianId);
+                }
+            }
+        });
+    }, {
+        threshold: 0.5 // Card must be at least 50% visible
+    });
+
+    // Observe all cards
+    cards.forEach(card => observer.observe(card));
+}
+
+// Handle phone click with confirmation and tracking
+function handlePhoneClick(event, electricianId, phoneNumber) {
+    // Prevent default action temporarily
+    event.preventDefault();
+
+    // Track the click BEFORE opening dialer
+    trackPhoneClick(electricianId);
     trackClick('phone', electricianId);
 
-    // TODO: Update analytics in backend/database
+    // Show confirmation toast
+    showCallToast();
+
+    // Open dialer after brief delay (1 second)
+    setTimeout(() => {
+        window.location.href = `tel:${phoneNumber}`;
+    }, 1000);
+}
+
+// Show call confirmation toast
+function showCallToast() {
+    const toast = document.getElementById('callToast');
+    toast.classList.add('show');
+
+    // Hide after 1 second
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 1000);
 }

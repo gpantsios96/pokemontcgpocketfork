@@ -278,3 +278,35 @@ footer p {
         gap: 24px;
     }
 }
+
+/* Call Confirmation Toast */
+.call-toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #059669;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+}
+
+.call-toast.show {
+    bottom: 24px;
+}
+
+.toast-icon {
+    font-size: 24px;
+}
+
+.toast-message {
+    white-space: nowrap;
+}
