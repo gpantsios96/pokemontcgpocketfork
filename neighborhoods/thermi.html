@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Βρείτε έμπειρο ηλεκτρολόγο στην Καλαμαριά. Αξιόπιστοι επαγγελματίες με κριτικές, τιμές και 24ωρη εξυπηρέτηση.">
+    <title>Ηλεκτρολόγος Καλαμαριά Θεσσαλονίκη - Επαγγελματίες στην Περιοχή</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="neighborhood-styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ηλεκτρολόγοι Θεσσαλονίκη</h1>
+            <p class="tagline">Βρείτε τον κατάλληλο ηλεκτρολόγο για τις ανάγκες σας</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <div class="container">
+                <a href="../index.html">Αρχική</a>
+                <span class="separator">›</span>
+                <a href="../index.html">Ηλεκτρολόγοι Θεσσαλονίκη</a>
+                <span class="separator">›</span>
+                <span id="breadcrumb-neighborhood">Καλαμαριά</span>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="neighborhood-hero">
+            <div class="container">
+                <h1>Ηλεκτρολόγος Καλαμαριά - Βρείτε Έμπειρους Επαγγελματίες</h1>
+                <p class="intro">
+                    Αναζητάτε αξιόπιστο ηλεκτρολόγο στην Καλαμαριά; Βρείτε τους καλύτερους
+                    επαγγελματίες της περιοχής με επαληθευμένες κριτικές και ανταγωνιστικές τιμές.
+                </p>
+
+                <!-- Quick Filters -->
+                <div class="quick-filters">
+                    <button class="filter-btn active" data-filter="all">Όλοι</button>
+                    <button class="filter-btn" data-filter="24h">24ωρη</button>
+                    <button class="filter-btn" data-filter="emergency">Έκτακτη Ανάγκη</button>
+                    <button class="filter-btn" data-filter="installations">Εγκαταστάσεις</button>
+                    <button class="filter-btn" data-filter="repairs">Επισκευές</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Electricians List -->
+        <section class="neighborhood-electricians">
+            <div class="container">
+                <h2 data-neighborhood-name>Ηλεκτρολόγοι που Εξυπηρετούν την [Neighborhood]</h2>
+                <p class="section-subtitle">
+                    <span id="electricians-count">0 επαγγελματίες</span> διαθέσιμοι στην περιοχή σας
+                </p>
+                <div id="electricians-list" class="electricians-grid">
+                    <!-- Electricians loaded by JavaScript -->
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 data-neighborhood-name">Υπηρεσίες Ηλεκτρολόγων στην [Neighborhood]</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">⚡</div>
+                        <h3>Επισκευές</h3>
+                        <p>Άμεση αντιμετώπιση βλαβών και προβλημάτων στο ηλεκτρολογικό σύστημα</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🔌</div>
+                        <h3>Εγκαταστάσεις</h3>
+                        <p>Πλήρεις ηλεκτρολογικές εγκαταστάσεις για κατοικίες και επαγγελματικούς χώρους</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🔧</div>
+                        <h3>Συντήρηση</h3>
+                        <p>Τακτική συντήρηση και έλεγχος ηλεκτρολογικών συστημάτων</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🚨</div>
+                        <h3>24ωρη Κάλυψη</h3>
+                        <p>Διαθέσιμοι όλο το 24ωρο για έκτακτες ανάγκες και επείγοντα περιστατικά</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2>Συχνές Ερωτήσεις</h2>
+
+                <div class="faq-item">
+                    <h3>Πόσο κοστίζει ένας ηλεκτρολόγος στην [Neighborhood];</h3>
+                    <div class="faq-answer">
+                        <p>Οι τιμές ποικίλλουν ανάλογα με την εργασία. Μια απλή επισκευή κοστίζει
+                        συνήθως €50-100, ενώ μεγαλύτερα έργα ξεκινούν από €200+. Ζητήστε προσφορές
+                        από 2-3 επαγγελματίες για τη καλύτερη τιμή.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Πώς επιλέγω τον καλύτερο ηλεκτρολόγο;</h3>
+                    <div class="faq-answer">
+                        <p>Ελέγξτε τις κριτικές, τα χρόνια εμπειρίας, και αν έχουν άδεια λειτουργίας.
+                        Προτιμήστε επαγγελματίες που προσφέρουν 24ωρη εξυπηρέτηση και εγγύηση για τη δουλειά τους.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Υπάρχουν ηλεκτρολόγοι με 24ωρη εξυπηρέτηση στην [Neighborhood];</h3>
+                    <div class="faq-answer">
+                        <p>Ναι, πολλοί επαγγελματίες στην [Neighborhood] προσφέρουν 24ωρη κάλυψη
+                        για έκτακτες ανάγκες. Φιλτράρετε τα αποτελέσματα με το κουμπί "24ωρη" παραπάνω.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Τι πρέπει να ρωτήσω πριν προσλάβω ηλεκτρολόγο;</h3>
+                    <div class="faq-answer">
+                        <p>Ρωτήστε για άδεια λειτουργίας, ασφάλιση εργασίας, εμπειρία σε παρόμοιες
+                        εργασίες, και αν δίνουν εγγύηση. Ζητήστε λεπτομερή κοστολόγηση πριν ξεκινήσει η δουλειά.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Πόσος χρόνος χρειάζεται για μια ηλεκτρολογική επισκευή;</h3>
+                    <div class="faq-answer">
+                        <p>Εξαρτάται από τη βλάβη. Απλές επισκευές ολοκληρώνονται σε 1-2 ώρες,
+                        ενώ πιο σύνθετες εργασίες μπορεί να διαρκέσουν αρκετές ημέρες. Ο ηλεκτρολόγος
+                        θα σας ενημερώσει για τον εκτιμώμενο χρόνο.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Neighborhoods -->
+        <section class="nearby">
+            <div class="container">
+                <h3>Κοντινές Περιοχές</h3>
+                <p class="nearby-subtitle">Δείτε ηλεκτρολόγους σε κοντινές περιοχές</p>
+                <div class="nearby-links">
+                    <!-- Links loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2 data-neighborhood-name>Βρείτε Ηλεκτρολόγο στην [Neighborhood] Τώρα</h2>
+                <p>Δείτε όλους τους διαθέσιμους επαγγελματίες και καλέστε απευθείας</p>
+                <a href="#electricians-list" class="cta-button">Δείτε Ηλεκτρολόγους</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ηλεκτρολόγοι Θεσσαλονίκη. Όλα τα δικαιώματα διατηρούνται.</p>
+        </div>
+    </footer>
+
+    <script src="neighborhood.js"></script>
+</body>
+</html>

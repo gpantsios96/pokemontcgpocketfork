@@ -1,0 +1,400 @@
+/* ==========================================
+   NEIGHBORHOOD PAGES - ADDITIONAL STYLES
+   ========================================== */
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: #f3f4f6;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    margin: 0 8px;
+    color: #9ca3af;
+}
+
+.breadcrumb span:last-child {
+    color: #6b7280;
+}
+
+/* Neighborhood Hero */
+.neighborhood-hero {
+    background: white;
+    padding: 24px 0;
+}
+
+.neighborhood-hero h1 {
+    font-size: 26px;
+    color: #1e40af;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.neighborhood-hero .intro {
+    font-size: 16px;
+    color: #4b5563;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* Quick Filters */
+.quick-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 44px;
+}
+
+.filter-btn:active, .filter-btn.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+/* Sections */
+.neighborhood-electricians,
+.services,
+.faq,
+.nearby,
+.cta {
+    padding: 32px 0;
+}
+
+.neighborhood-electricians {
+    background: #f9fafb;
+}
+
+.neighborhood-electricians h2 {
+    font-size: 24px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+/* Services Grid */
+.services {
+    background: white;
+}
+
+.services h2 {
+    font-size: 24px;
+    color: #1f2937;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.service-item {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.service-item h3 {
+    font-size: 18px;
+    color: #1e40af;
+    margin-bottom: 8px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* FAQ Section */
+.faq {
+    background: #f9fafb;
+}
+
+.faq h2 {
+    font-size: 24px;
+    color: #1f2937;
+    margin-bottom: 24px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.faq-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e40af;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item h3::after {
+    content: '+';
+    font-size: 24px;
+    color: #2563eb;
+    transition: transform 0.3s;
+}
+
+.faq-item.active h3::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p {
+    padding: 0 20px 16px 20px;
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Nearby Neighborhoods */
+.nearby {
+    background: white;
+}
+
+.nearby h3 {
+    font-size: 20px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.nearby-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.nearby-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nearby-link {
+    padding: 12px 20px;
+    background: #eff6ff;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.nearby-link:active {
+    background: #2563eb;
+    color: white;
+}
+
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 24px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    background: white;
+    color: #2563eb;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    min-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Back link */
+.back-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   RESPONSIVE: TABLETS (768px+)
+   ========================================== */
+
+@media (min-width: 768px) {
+    .breadcrumb {
+        font-size: 15px;
+    }
+
+    .neighborhood-hero h1 {
+        font-size: 32px;
+    }
+
+    .neighborhood-hero .intro {
+        font-size: 18px;
+    }
+
+    .quick-filters {
+        gap: 12px;
+    }
+
+    .filter-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .service-item {
+        padding: 24px;
+    }
+
+    .service-icon {
+        font-size: 48px;
+    }
+
+    .service-item h3 {
+        font-size: 20px;
+    }
+
+    .service-item p {
+        font-size: 15px;
+    }
+
+    .faq-item h3 {
+        font-size: 18px;
+        padding: 20px 24px;
+    }
+
+    .faq-answer p {
+        padding: 0 24px 20px 24px;
+        font-size: 15px;
+    }
+
+    .cta h2 {
+        font-size: 32px;
+    }
+
+    .cta p {
+        font-size: 18px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE: DESKTOP (1024px+)
+   ========================================== */
+
+@media (min-width: 1024px) {
+    .neighborhood-hero h1 {
+        font-size: 36px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+
+    .cta h2 {
+        font-size: 36px;
+    }
+
+    /* Hover effects for desktop */
+    .filter-btn:hover {
+        background: #eff6ff;
+        border-color: #2563eb;
+    }
+
+    .filter-btn.active:hover {
+        background: #1e40af;
+    }
+
+    .nearby-link:hover {
+        background: #2563eb;
+        color: white;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+}
