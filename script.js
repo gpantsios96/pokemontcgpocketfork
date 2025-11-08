@@ -1,3 +1,7 @@
+// Global state
+let allElectricians = [];
+let searchDebounceTimer = null;
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
@@ -15,6 +19,14 @@ function setupSearchFunctionality() {
     const searchInput = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
 
+    // Real-time search with debounce
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(() => {
+            handleSearch();
+        }, 200);
+    });
+
     // Search button click handler
     searchBtn.addEventListener('click', handleSearch);
 
@@ -26,21 +38,65 @@ function setupSearchFunctionality() {
     });
 }
 
+// Normalize Greek text (remove accents/tones for search)
+function normalizeGreekText(text) {
+    if (!text) return '';
+
+    return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+        .replace(/ά/g, 'α')
+        .replace(/έ/g, 'ε')
+        .replace(/ή/g, 'η')
+        .replace(/ί/g, 'ι')
+        .replace(/ό/g, 'ο')
+        .replace(/ύ/g, 'υ')
+        .replace(/ώ/g, 'ω')
+        .replace(/ΐ/g, 'ι')
+        .replace(/ΰ/g, 'υ');
+}
+
+// Filter electricians based on search term
+function filterElectricians(searchTerm) {
+    if (!searchTerm || searchTerm.trim() === '') {
+        return allElectricians;
+    }
+
+    const normalizedSearch = normalizeGreekText(searchTerm);
+
+    return allElectricians.filter(electrician => {
+        // Search in name
+        const normalizedName = normalizeGreekText(electrician.name);
+        if (normalizedName.includes(normalizedSearch)) {
+            return true;
+        }
+
+        // Search in neighborhood
+        const normalizedNeighborhood = normalizeGreekText(electrician.neighborhood);
+        if (normalizedNeighborhood.includes(normalizedSearch)) {
+            return true;
+        }
+
+        // Search in services
+        const servicesMatch = electrician.services.some(service => {
+            const normalizedService = normalizeGreekText(service);
+            return normalizedService.includes(normalizedSearch);
+        });
+
+        return servicesMatch;
+    });
+}
+
 // Handle search action
 function handleSearch() {
     const searchInput = document.getElementById('searchInput');
     const searchTerm = searchInput.value.trim();
 
-    if (searchTerm === '') {
-        alert('Παρακαλώ εισάγετε κείμενο αναζήτησης');
-        return;
-    }
+    const filteredElectricians = filterElectricians(searchTerm);
+    displayElectricians(filteredElectricians, searchTerm);
 
-    console.log('Αναζήτηση για:', searchTerm);
-
-    // TODO: Implement actual search functionality
-    // This will filter electricians based on search term
-    alert('Η αναζήτηση θα ενεργοποιηθεί σύντομα: ' + searchTerm);
+    console.log('Αναζήτηση για:', searchTerm, '- Βρέθηκαν:', filteredElectricians.length);
 }
 
 // Click tracking setup
@@ -78,8 +134,8 @@ async function loadElectricians() {
             throw new Error('Αποτυχία φόρτωσης δεδομένων');
         }
 
-        const electricians = await response.json();
-        displayElectricians(electricians);
+        allElectricians = await response.json();
+        displayElectricians(allElectricians);
     } catch (error) {
         console.error('Σφάλμα:', error);
         const electriciansList = document.getElementById('electriciansList');
@@ -88,13 +144,21 @@ async function loadElectricians() {
 }
 
 // Display electricians as cards
-function displayElectricians(electricians) {
+function displayElectricians(electricians, searchTerm = '') {
     const electriciansList = document.getElementById('electriciansList');
 
     if (!electricians || electricians.length === 0) {
-        electriciansList.innerHTML = '<p class="placeholder-text">Δεν βρέθηκαν ηλεκτρολόγοι</p>';
+        const message = searchTerm
+            ? '<p class="placeholder-text">Δεν βρέθηκαν αποτελέσματα για την αναζήτησή σας</p>'
+            : '<p class="placeholder-text">Δεν βρέθηκαν ηλεκτρολόγοι</p>';
+        electriciansList.innerHTML = message;
         return;
     }
+
+    // Show results count
+    const countHTML = searchTerm
+        ? `<p class="search-results-count">Βρέθηκαν ${electricians.length} ${electricians.length === 1 ? 'ηλεκτρολόγος' : 'ηλεκτρολόγοι'}</p>`
+        : '';
 
     // Create HTML for each electrician card
     const cardsHTML = electricians.map(electrician => {
@@ -116,7 +180,7 @@ function displayElectricians(electricians) {
         `;
     }).join('');
 
-    electriciansList.innerHTML = cardsHTML;
+    electriciansList.innerHTML = countHTML + cardsHTML;
 }
 
 // Track phone click
