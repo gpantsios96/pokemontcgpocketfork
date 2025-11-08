@@ -9,11 +9,22 @@
     <link rel="stylesheet" href="neighborhood-styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Ηλεκτρολόγοι Θεσσαλονίκη</h1>
-            <p class="tagline">Βρείτε τον κατάλληλο ηλεκτρολόγο για τις ανάγκες σας</p>
-        </div>
+    <!-- Mobile Navigation Header -->
+    <header class="site-header">
+        <!-- Back button -->
+        <button class="back-button" onclick="goBack()">
+            ←
+        </button>
+
+        <!-- Logo/Title - centered and clickable -->
+        <a href="../index.html" class="site-logo">
+            Ηλεκτρολόγοι Θεσσαλονίκη
+        </a>
+
+        <!-- Emergency button -->
+        <button class="emergency-header-btn" onclick="alert('Για έκτακτη ανάγκη καλέστε το 112')">
+            🚨
+        </button>
     </header>
 
     <main>
@@ -169,6 +180,18 @@
         </div>
     </footer>
 
+    <script>
+        // Navigation helper function
+        function goBack() {
+            // Check if there's history
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // If no history (direct link), go to homepage
+                window.location.href = '../index.html';
+            }
+        }
+    </script>
     <script src="neighborhood.js"></script>
 </body>
 </html>

@@ -55,9 +55,140 @@ button:active, a:active {
 }
 
 /* ==========================================
-   HEADER
+   HEADER - MOBILE NAVIGATION
    ========================================== */
 
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Back button - left side */
+.back-button {
+    width: 44px;
+    height: 44px;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.back-button:active {
+    background: #e5e7eb;
+}
+
+/* Hide back button on homepage but keep space */
+.homepage .back-button {
+    visibility: hidden;
+}
+
+/* Logo - center, clickable */
+.site-logo {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.site-logo:active {
+    opacity: 0.7;
+}
+
+/* Emergency button - right side */
+.emergency-header-btn {
+    width: 44px;
+    height: 44px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.emergency-header-btn:active {
+    background: #dc2626;
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+    .site-logo {
+        font-size: 24px;
+    }
+
+    .back-button {
+        width: auto;
+        padding: 0 16px;
+        font-size: 16px;
+    }
+
+    .back-button::after {
+        content: " Πίσω";
+        margin-left: 4px;
+    }
+
+    .emergency-header-btn {
+        width: auto;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .emergency-header-btn::after {
+        content: " Έκτακτη Ανάγκη";
+        margin-left: 4px;
+    }
+}
+
+/* Breadcrumb - Hide on mobile, show on desktop */
+.breadcrumb {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .breadcrumb {
+        display: block;
+        padding: 12px 0;
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .breadcrumb a {
+        color: #2563eb;
+        text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb .separator {
+        margin: 0 8px;
+        color: #d1d5db;
+    }
+}
+
+/* Old header styles (for hero section) */
 header {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
     color: white;

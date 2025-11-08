@@ -7,7 +7,26 @@
     <title>Ηλεκτρολόγοι Θεσσαλονίκη - Βρείτε Έμπειρους Επαγγελματίες</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="homepage">
+    <!-- Mobile Navigation Header -->
+    <header class="site-header">
+        <!-- Back button (invisible on homepage but keeps space) -->
+        <button class="back-button" onclick="goBack()">
+            ←
+        </button>
+
+        <!-- Logo/Title - centered and clickable -->
+        <a href="index.html" class="site-logo">
+            Ηλεκτρολόγοι Θεσσαλονίκη
+        </a>
+
+        <!-- Emergency button -->
+        <button class="emergency-header-btn" onclick="alert('Για έκτακτη ανάγκη καλέστε το 112')">
+            🚨
+        </button>
+    </header>
+
+    <!-- Hero Section -->
     <header>
         <div class="container">
             <h1>Ηλεκτρολόγοι Θεσσαλονίκη</h1>
@@ -64,6 +83,18 @@
         <span class="toast-message">Γίνεται κλήση...</span>
     </div>
 
+    <script>
+        // Navigation helper function
+        function goBack() {
+            // Check if there's history
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // If no history (direct link), go to homepage
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
     <script src="analytics.js"></script>
     <script src="rotation.js"></script>
     <script src="script.js"></script>
