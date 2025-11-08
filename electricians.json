@@ -5,7 +5,8 @@
     "phone": "2310-456789",
     "neighborhood": "Καλαμαριά",
     "services": ["Επισκευές", "Εγκαταστάσεις", "24ωρη"],
-    "tier": "free",
+    "tier": "premium",
+    "monthlyFee": 100,
     "analytics": {
       "totalViews": 0,
       "totalPhoneClicks": 0
@@ -17,7 +18,8 @@
     "phone": "2310-523456",
     "neighborhood": "Πανόραμα",
     "services": ["Επισκευές", "Εγκαταστάσεις"],
-    "tier": "free",
+    "tier": "featured",
+    "monthlyFee": 80,
     "analytics": {
       "totalViews": 0,
       "totalPhoneClicks": 0
@@ -29,7 +31,8 @@
     "phone": "2310-678123",
     "neighborhood": "Πυλαία",
     "services": ["Εγκαταστάσεις", "24ωρη"],
-    "tier": "free",
+    "tier": "featured",
+    "monthlyFee": 80,
     "analytics": {
       "totalViews": 0,
       "totalPhoneClicks": 0
@@ -42,6 +45,7 @@
     "neighborhood": "Καλαμαριά",
     "services": ["Επισκευές"],
     "tier": "free",
+    "monthlyFee": 0,
     "analytics": {
       "totalViews": 0,
       "totalPhoneClicks": 0
@@ -54,6 +58,7 @@
     "neighborhood": "Πανόραμα",
     "services": ["Επισκευές", "Εγκαταστάσεις", "24ωρη"],
     "tier": "free",
+    "monthlyFee": 0,
     "analytics": {
       "totalViews": 0,
       "totalPhoneClicks": 0

@@ -58,15 +58,30 @@ function normalizeGreekText(text) {
         .replace(/ΰ/g, 'υ');
 }
 
+// Sort electricians by tier (premium > featured > free)
+function sortElectriciansByTier(electricians) {
+    const tierOrder = {
+        'premium': 1,
+        'featured': 2,
+        'free': 3
+    };
+
+    return [...electricians].sort((a, b) => {
+        const tierA = tierOrder[a.tier] || 999;
+        const tierB = tierOrder[b.tier] || 999;
+        return tierA - tierB;
+    });
+}
+
 // Filter electricians based on search term
 function filterElectricians(searchTerm) {
     if (!searchTerm || searchTerm.trim() === '') {
-        return allElectricians;
+        return sortElectriciansByTier(allElectricians);
     }
 
     const normalizedSearch = normalizeGreekText(searchTerm);
 
-    return allElectricians.filter(electrician => {
+    const filtered = allElectricians.filter(electrician => {
         // Search in name
         const normalizedName = normalizeGreekText(electrician.name);
         if (normalizedName.includes(normalizedSearch)) {
@@ -87,6 +102,8 @@ function filterElectricians(searchTerm) {
 
         return servicesMatch;
     });
+
+    return sortElectriciansByTier(filtered);
 }
 
 // Handle search action
@@ -136,12 +153,52 @@ async function loadElectricians() {
         }
 
         allElectricians = await response.json();
-        displayElectricians(allElectricians);
+        // Display electricians sorted by tier
+        displayElectricians(sortElectriciansByTier(allElectricians));
     } catch (error) {
         console.error('Σφάλμα:', error);
         const electriciansList = document.getElementById('electriciansList');
         electriciansList.innerHTML = '<p class="placeholder-text">Σφάλμα φόρτωσης δεδομένων</p>';
     }
+}
+
+// Get tier badge HTML based on tier
+function getTierBadge(tier) {
+    if (tier === 'premium') {
+        return `
+            <div class="tier-badges">
+                <span class="tier-badge tier-premium">⭐⭐ PREMIUM</span>
+                <span class="verified-badge">✓ ΕΠΑΛΗΘΕΥΜΕΝΟΣ</span>
+            </div>
+        `;
+    } else if (tier === 'featured') {
+        return `
+            <div class="tier-badges">
+                <span class="tier-badge tier-featured">⭐ ΠΡΟΤΕΙΝΟΜΕΝΟΣ</span>
+                <span class="verified-badge">✓ ΕΠΑΛΗΘΕΥΜΕΝΟΣ</span>
+            </div>
+        `;
+    }
+    return '';
+}
+
+// Get premium stats HTML (only for premium tier)
+function getPremiumStatsHTML(electrician) {
+    if (electrician.tier !== 'premium') {
+        return '';
+    }
+
+    // Get stats from localStorage
+    const stats = getElectricianStats(electrician.id);
+    const currentMonth = getCurrentMonthKey();
+    const monthlyViews = stats.monthlyViews[currentMonth] || 0;
+    const monthlyPhoneClicks = stats.monthlyPhoneClicks[currentMonth] || 0;
+
+    return `
+        <div class="premium-stats">
+            📊 Αυτόν τον μήνα: ${monthlyViews} προβολές, ${monthlyPhoneClicks} κλήσεις
+        </div>
+    `;
 }
 
 // Display electricians as cards
@@ -167,8 +224,13 @@ function displayElectricians(electricians, searchTerm = '') {
             .map(service => `<span class="service-badge">${service}</span>`)
             .join('');
 
+        const tierClass = `electrician-card-${electrician.tier}`;
+        const tierBadge = getTierBadge(electrician.tier);
+        const premiumStats = getPremiumStatsHTML(electrician);
+
         return `
-            <div class="electrician-card" data-electrician-id="${electrician.id}">
+            <div class="electrician-card ${tierClass}" data-electrician-id="${electrician.id}">
+                ${tierBadge}
                 <h3 class="electrician-name">${electrician.name}</h3>
                 <a href="tel:${electrician.phone}" class="electrician-phone" onclick="handlePhoneClick(event, ${electrician.id}, '${electrician.phone}')">
                     ${electrician.phone}
@@ -177,6 +239,7 @@ function displayElectricians(electricians, searchTerm = '') {
                 <div class="services-container">
                     ${servicesHTML}
                 </div>
+                ${premiumStats}
             </div>
         `;
     }).join('');
