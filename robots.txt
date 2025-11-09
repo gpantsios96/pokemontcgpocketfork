@@ -1,0 +1,12 @@
+# robots.txt for Ηλεκτρολόγοι Θεσσαλονίκη
+# Instructs search engines how to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /js/
+Disallow: *.js$
+
+# Sitemap location
+# IMPORTANT: Replace YOUR-SITE-URL with actual domain after deployment
+Sitemap: https://YOUR-SITE-URL.netlify.app/sitemap.xml
