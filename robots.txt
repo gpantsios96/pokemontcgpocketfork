@@ -8,5 +8,4 @@ Disallow: /js/
 Disallow: *.js$
 
 # Sitemap location
-# IMPORTANT: Replace YOUR-SITE-URL with actual domain after deployment
-Sitemap: https://YOUR-SITE-URL.netlify.app/sitemap.xml
+Sitemap: https://ilektrologoi-thessaloniki.com/sitemap.xml

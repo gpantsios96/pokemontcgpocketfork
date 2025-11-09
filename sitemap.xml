@@ -3,86 +3,86 @@
 
   <!-- Homepage - Highest priority -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/index.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/index.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Neighborhood pages - High priority for local SEO -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/kalamaria.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/kalamaria.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/panorama.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/panorama.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/pylaia.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/pylaia.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/evosmos.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/evosmos.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/neapoli.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/neapoli.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/toumba.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/toumba.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/thermi.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/thermi.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/sykies.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/sykies.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/stavroupoli.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/stavroupoli.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/neighborhoods/kentro.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/neighborhoods/kentro.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -90,160 +90,160 @@
   <!-- Individual Electrician Pages - High priority for local business SEO -->
   <!-- Ο ΖΗΣΗΣ - Καλαμαριά -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=1</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=1</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΧΑΡΕΣ ΜΙΧΑΛΗΣ & ΧΡΗΣΤΟΣ - Καλαμαριά -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=2</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=2</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Ναλμπαντίδης Χαράλαμπος Α. - Καλαμαριά -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=3</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=3</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Χαμαλέλλης Μιχαήλ Ι - Καλαμαριά -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=4</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=4</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ELECTRIC LINES - ΚΟΥΚΟΥΜΑΚΑΣ ΝΙΚΟΣ - Πυλαία -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=5</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=5</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΛΕΜΠΕΡΟΣ Χ ΚΑΙ ΣΙΑ ΕΕ - Πυλαία -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=6</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=6</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Ποιμενίδης Χαράλαμπος Γ - Τούμπα -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=7</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=7</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Στρίβας Σωτήριος Ν - Τούμπα -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=8</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=8</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Κεχαγιάς Νικόλαος Γ. - Τούμπα -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=9</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=9</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΙΩΣΗΦΙΔΗΣ - Πανόραμα -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=11</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=11</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΠΑΝΤΑΖΗΣ ΓΕΩΡΓΙΟΣ - PROELECTRIC - Πανόραμα -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=12</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=12</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΚΟΥΚΟΥΛΑΣ ΓΕΩΡΓΙΟΣ - Σταυρούπολη -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=13</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=13</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΤΗΛΑΒΕΡΙΔΗΣ ΚΩΝΣΤΑΝΤΙΝΟΣ - Σταυρούπολη -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=14</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=14</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΤΣΟΜΛΕΚΤΣΗΣ ΑΝΑΣΤΑΣΙΟΣ - Σταυρούπολη -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=15</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=15</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΜΠΑΚΙΡΑΣ Χ. ΓΕΩΡΓΙΟΣ - Θεσσαλονίκη Κέντρο -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=16</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=16</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΓΕΡΑΣΙΜΟΠΟΥΛΟΣ ΝΕΣΤΩΡ - NESTOR ELECTRIC - Θεσσαλονίκη Κέντρο -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=17</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=17</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΜΑΝΩΛΑΣ & ΣΥΝΕΡΓΑΤΕΣ - Θεσσαλονίκη Κέντρο -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=18</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=18</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- CLIMA GAS - Θεσσαλονίκη Κέντρο -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=19</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=19</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ΘΟΔΩΡΗΣ ΙΩΑΝΝΗΣ - Θεσσαλονίκη Κέντρο -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=20</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html?id=20</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Electrician detail page template - Lower priority -->
   <url>
-    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://ilektrologoi-thessaloniki.com/electrician-detail.html</loc>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
