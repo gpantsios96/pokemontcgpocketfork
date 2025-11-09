@@ -15,6 +15,25 @@
 // Generic storage key (less obvious than "electrician-analytics")
 const STORAGE_KEY = 'app_data';
 
+// ==========================================
+// RATE LIMITING & SPAM PROTECTION
+// ==========================================
+
+// Rate limiting state - tracks last action timestamps
+const rateLimits = {
+    phoneClicks: {},
+    formSubmits: {},
+    pageViews: {}
+};
+
+// Spam detection state
+let spamDetection = {
+    clickCount: 0,
+    lastClickTime: Date.now(),
+    isBlocked: false,
+    blockUntil: 0
+};
+
 /**
  * Encode data to Base64 for obfuscation
  * @param {Object} data - The data object to encode
@@ -112,10 +131,109 @@ function getCurrentMonthKey() {
 }
 
 /**
+ * Check if action is rate limited
+ * @param {string} action - Action type ('phoneClicks', 'formSubmits', 'pageViews')
+ * @param {string|number} identifier - Unique identifier (usually electrician ID)
+ * @param {number} limitMs - Minimum milliseconds between actions (default: 2000)
+ * @returns {boolean} - True if rate limited (blocked), false if allowed
+ */
+function isRateLimited(action, identifier, limitMs = 2000) {
+    const now = Date.now();
+    const key = `${action}_${identifier}`;
+
+    // Check if this action was done recently
+    if (rateLimits[action][key]) {
+        const timeSince = now - rateLimits[action][key];
+        if (timeSince < limitMs) {
+            console.log(`⏱️ Rate limited: ${action} (${timeSince}ms < ${limitMs}ms)`);
+            return true; // Too soon, block it
+        }
+    }
+
+    // Update timestamp
+    rateLimits[action][key] = now;
+    return false; // Allow it
+}
+
+/**
+ * Detect spam behavior (too many rapid clicks)
+ * @returns {boolean} - True if spam detected, false if normal behavior
+ */
+function detectSpam() {
+    const now = Date.now();
+
+    // Check if currently blocked
+    if (spamDetection.isBlocked) {
+        if (now < spamDetection.blockUntil) {
+            console.warn('🚫 User temporarily blocked for spam');
+            return true; // Still blocked
+        } else {
+            // Block expired, reset
+            spamDetection.isBlocked = false;
+            spamDetection.clickCount = 0;
+            console.log('✅ Spam block expired');
+        }
+    }
+
+    // Track click frequency
+    if (now - spamDetection.lastClickTime < 1000) {
+        // More than 1 click per second
+        spamDetection.clickCount++;
+
+        if (spamDetection.clickCount > 5) {
+            // Too many rapid clicks - block for 30 seconds
+            console.warn('🚨 Spam detected! Blocking user temporarily');
+            spamDetection.isBlocked = true;
+            spamDetection.blockUntil = now + 30000; // Block for 30 seconds
+            showNotification('⚠️ Πάρα πολλές ενέργειες. Παρακαλώ περιμένετε 30 δευτερόλεπτα.');
+            return true; // Spam detected
+        }
+    } else {
+        // Reset counter if more than 1 second passed
+        spamDetection.clickCount = 1;
+    }
+
+    spamDetection.lastClickTime = now;
+    return false; // Not spam
+}
+
+/**
+ * Check if user is temporarily blocked for spam
+ * @returns {boolean} - True if blocked, false if allowed
+ */
+function isUserBlocked() {
+    if (spamDetection.isBlocked) {
+        const now = Date.now();
+        if (now < spamDetection.blockUntil) {
+            const secondsRemaining = Math.ceil((spamDetection.blockUntil - now) / 1000);
+            showNotification(`⏳ Παρακαλώ περιμένετε ${secondsRemaining} δευτερόλεπτα`);
+            return true;
+        } else {
+            // Block expired
+            spamDetection.isBlocked = false;
+            spamDetection.clickCount = 0;
+        }
+    }
+    return false;
+}
+
+/**
  * Track listing view (when electrician card is viewed)
  * @param {number} electricianId - ID of electrician
+ * @returns {boolean} - True if tracked, false if blocked
  */
 function trackListingView(electricianId) {
+    // Check for spam behavior
+    if (detectSpam()) {
+        return false; // Block if spam detected
+    }
+
+    // Rate limit: minimum 1 second between views of same electrician
+    if (isRateLimited('pageViews', electricianId, 1000)) {
+        console.log('View tracking rate limited');
+        return false; // Block if too frequent
+    }
+
     const analytics = loadAnalytics();
 
     // Initialize electrician analytics if doesn't exist
@@ -144,13 +262,31 @@ function trackListingView(electricianId) {
 
     // Minimal console log (no sensitive data)
     console.log('View tracked');
+    return true;
 }
 
 /**
  * Track phone click (when someone clicks to call)
  * @param {number} electricianId - ID of electrician
+ * @returns {boolean} - True if tracked, false if blocked
  */
 function trackPhoneClick(electricianId) {
+    // Check if user is blocked for spam
+    if (isUserBlocked()) {
+        return false; // Block if spam blocked
+    }
+
+    // Check for spam behavior
+    if (detectSpam()) {
+        return false; // Block if spam detected
+    }
+
+    // Rate limit: minimum 2 seconds between phone clicks
+    if (isRateLimited('phoneClicks', electricianId, 2000)) {
+        showNotification('⏱️ Παρακαλώ περιμένετε λίγο...');
+        return false; // Block if too frequent
+    }
+
     const analytics = loadAnalytics();
 
     // Initialize electrician analytics if doesn't exist
@@ -179,6 +315,10 @@ function trackPhoneClick(electricianId) {
 
     // Minimal console log
     console.log('Click tracked');
+
+    // Show success notification
+    showNotification('📞 Γίνεται κλήση...');
+    return true;
 }
 
 /**
@@ -272,6 +412,27 @@ function importAnalytics(jsonString) {
     }
 }
 
+/**
+ * Check if form submission is rate limited
+ * @param {string|number} identifier - Unique identifier (usually electrician ID)
+ * @returns {boolean} - True if allowed, false if blocked
+ */
+function checkFormRateLimit(identifier) {
+    // Check if user is blocked for spam
+    if (isUserBlocked()) {
+        return false;
+    }
+
+    // Rate limit: minimum 10 seconds between form submissions
+    if (isRateLimited('formSubmits', identifier, 10000)) {
+        showNotification('⏱️ Παρακαλώ περιμένετε πριν στείλετε ξανά');
+        return false;
+    }
+
+    return true;
+}
+
 // Log security status on load
 console.log('🔒 Secure analytics loaded');
-console.log('Data stored as obfuscated Base64');
+console.log('📊 Data stored as obfuscated Base64');
+console.log('🛡️ Rate limiting enabled');

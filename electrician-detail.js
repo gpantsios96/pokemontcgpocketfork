@@ -299,10 +299,18 @@ function handlePhoneClick(event, electricianId, phoneNumber) {
     event.preventDefault();
 
     // Track the click BEFORE opening dialer
-    trackPhoneClick(electricianId);
+    // Rate limiting is handled inside trackPhoneClick
+    const allowed = trackPhoneClick(electricianId);
+
+    // If rate limited or spam detected, block the call
+    if (!allowed) {
+        console.log('Phone click blocked by rate limiting');
+        return false;
+    }
+
     trackClick('phone-detail-page', electricianId);
 
-    // Show confirmation toast
+    // Show confirmation toast (notification shown by trackPhoneClick)
     showCallToast();
 
     // Open dialer after brief delay
@@ -341,6 +349,16 @@ function setupContactForm() {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // Get electrician ID for rate limiting
+        const urlParams = new URLSearchParams(window.location.search);
+        const electricianId = urlParams.get('id');
+
+        // Check rate limiting (10 seconds between form submissions)
+        if (!checkFormRateLimit(electricianId)) {
+            console.log('Form submission blocked by rate limiting');
+            return false;
+        }
 
         // Get form data (stored for future use, but not sent anywhere yet)
         const formData = {

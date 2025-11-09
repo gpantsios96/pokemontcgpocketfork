@@ -403,10 +403,18 @@ function handlePhoneClick(event, electricianId, phoneNumber) {
     event.preventDefault();
 
     // Track the click BEFORE opening dialer
-    trackPhoneClick(electricianId);
+    // Rate limiting is handled inside trackPhoneClick
+    const allowed = trackPhoneClick(electricianId);
+
+    // If rate limited or spam detected, block the call
+    if (!allowed) {
+        console.log('Phone click blocked by rate limiting');
+        return false;
+    }
+
     trackClick('phone', electricianId);
 
-    // Show confirmation toast
+    // Show confirmation toast (notification shown by trackPhoneClick)
     showCallToast();
 
     // Open dialer after brief delay (1 second)
