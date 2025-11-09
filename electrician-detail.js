@@ -336,35 +336,65 @@ function trackClick(elementType, elementIdentifier) {
 // Setup contact form
 function setupContactForm() {
     const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('form-success');
 
     if (!form) return;
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Get form data
-        const name = document.getElementById('contact-name').value;
-        const phone = document.getElementById('contact-phone').value;
-        const message = document.getElementById('contact-message').value;
+        // Get form data (stored for future use, but not sent anywhere yet)
+        const formData = {
+            name: this.querySelector('#contact-name').value,
+            phone: this.querySelector('#contact-phone').value,
+            message: this.querySelector('#contact-message').value
+        };
 
-        // Log form submission (in real app, send to backend)
-        console.log('Contact form submitted:', { name, phone, message });
+        // Log for debugging (can be removed in production)
+        console.log('Contact form data:', formData);
 
-        // Show success message
-        if (successMessage) {
-            successMessage.style.display = 'block';
-            form.style.display = 'none';
-        }
+        // Create success message element
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'form-success-message';
+        messageDiv.innerHTML = `
+            <div style="
+                background: #d1fae5;
+                border: 2px solid #10b981;
+                border-radius: 12px;
+                padding: 20px;
+                margin: 20px 0;
+                text-align: center;
+                animation: slideDown 0.3s ease-out;
+            ">
+                <p style="
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #065f46;
+                    margin-bottom: 12px;
+                ">
+                    ✓ Η αλληλογραφία εστάλη
+                </p>
+                <p style="
+                    font-size: 16px;
+                    color: #047857;
+                    line-height: 1.6;
+                    margin: 0;
+                ">
+                    Για καλύτερο αποτέλεσμα δοκιμάστε να καλέσετε<br>
+                    απευθείας στο νούμερο του τεχνικού.
+                </p>
+            </div>
+        `;
 
-        // Reset form after 3 seconds
+        // Hide form and show message
+        form.style.display = 'none';
+        form.parentElement.insertBefore(messageDiv, form);
+
+        // Reset form and show it again after 5 seconds
         setTimeout(() => {
+            messageDiv.remove();
             form.reset();
-            if (successMessage) {
-                successMessage.style.display = 'none';
-                form.style.display = 'block';
-            }
-        }, 3000);
+            form.style.display = 'block';
+        }, 5000);
     });
 }
 

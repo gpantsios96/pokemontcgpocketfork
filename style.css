@@ -1280,6 +1280,22 @@ button:focus, a:focus, input:focus {
     border: 2px solid #10b981;
 }
 
+/* Contact form success message animation */
+.form-success-message {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Similar Section */
 .similar-section {
     padding: 32px 0;
