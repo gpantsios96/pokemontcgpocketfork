@@ -1,106 +1,16 @@
 // ==========================================
-// ADMIN DASHBOARD - PASSWORD PROTECTED
+// ADMIN DASHBOARD - FUNCTIONALITY ONLY
 // ==========================================
 //
-// SECURITY FEATURES:
-// 1. Password is hashed (not stored in plain text)
-// 2. Uses sessionStorage for auth (cleared when browser closed)
-// 3. No sensitive data logged to console
-// 4. Simple hash function to prevent easy password discovery
+// This file contains ONLY dashboard functionality.
+// Authentication is handled in dashboard.html
 //
-// TO CHANGE PASSWORD:
-// 1. Visit: https://www.md5hashgenerator.com/
-// 2. Enter your new password
-// 3. Copy the MD5 hash
-// 4. Replace ADMIN_PASSWORD_HASH below
-//
-// CURRENT PASSWORD: "admin2025" (CHANGE THIS!)
-// CURRENT HASH: "5f4dcc3b5aa765d61d8327deb882cf99"
+// FUNCTIONS:
+// - loadDashboard() - Load and display all dashboard data
+// - updateDashboard() - Update dashboard with data
+// - refreshDashboard() - Reload dashboard data
+// - exportData() - Export analytics data to JSON
 // ==========================================
-
-// Hashed password (MD5 of "admin2025")
-// IMPORTANT: Change this after deployment!
-const ADMIN_PASSWORD_HASH = '5f4dcc3b5aa765d61d8327deb882cf99';
-
-/**
- * Simple hash function for password checking
- * For production, use proper server-side authentication
- */
-function simpleHash(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        const char = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
-    }
-    return Math.abs(hash).toString(16).padStart(16, '0');
-}
-
-/**
- * Check admin password
- */
-function checkAdminPassword() {
-    const password = prompt('🔒 Εισάγετε κωδικό διαχειριστή:');
-
-    if (!password) {
-        alert('Απαιτείται κωδικός!');
-        window.location.href = '../index.html';
-        return false;
-    }
-
-    // Use simple hash for now (can be upgraded to MD5)
-    const hashedInput = simpleHash(password);
-
-    // Check against stored hash
-    if (hashedInput === ADMIN_PASSWORD_HASH) {
-        sessionStorage.setItem('admin-auth', 'true');
-        sessionStorage.setItem('admin-login-time', Date.now());
-        console.log('✅ Admin authenticated');
-        return true;
-    } else {
-        alert('❌ Λάθος κωδικός!');
-        window.location.href = '../index.html';
-        return false;
-    }
-}
-
-/**
- * Check if admin is authenticated
- */
-function isAuthenticated() {
-    const auth = sessionStorage.getItem('admin-auth');
-    const loginTime = sessionStorage.getItem('admin-login-time');
-
-    // Check if auth exists
-    if (auth !== 'true') {
-        return false;
-    }
-
-    // Check if session is still valid (4 hours)
-    if (loginTime) {
-        const fourHours = 4 * 60 * 60 * 1000;
-        const now = Date.now();
-        if (now - parseInt(loginTime) > fourHours) {
-            // Session expired
-            sessionStorage.removeItem('admin-auth');
-            sessionStorage.removeItem('admin-login-time');
-            return false;
-        }
-    }
-
-    return true;
-}
-
-/**
- * Logout function
- */
-function logout() {
-    if (confirm('Θέλετε να αποσυνδεθείτε;')) {
-        sessionStorage.removeItem('admin-auth');
-        sessionStorage.removeItem('admin-login-time');
-        window.location.href = '../index.html';
-    }
-}
 
 /**
  * Load dashboard data
@@ -232,7 +142,7 @@ function refreshDashboard() {
  */
 function exportData() {
     try {
-        const analytics = exportAnalyticsToJSON();
+        const analytics = exportAnalytics();
         const blob = new Blob([analytics], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -249,33 +159,4 @@ function exportData() {
     }
 }
 
-// ==========================================
-// INITIALIZATION
-// ==========================================
-
-// Check authentication on page load
-if (!isAuthenticated()) {
-    checkAdminPassword();
-}
-
-// If authenticated, load dashboard
-if (isAuthenticated()) {
-    loadDashboard();
-} else {
-    // Redirect to homepage if auth fails
-    window.location.href = '../index.html';
-}
-
-// Prevent F12 console access (optional, can be bypassed)
-// Uncomment if you want additional protection
-/*
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
-        e.preventDefault();
-        alert('Developer tools disabled');
-    }
-});
-*/
-
-console.log('🔒 Admin dashboard loaded');
-console.log('Session expires in 4 hours');
+console.log('📊 Dashboard functionality loaded');

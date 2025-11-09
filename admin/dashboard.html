@@ -204,7 +204,7 @@
             <div class="admin-actions">
                 <button class="btn-admin" onclick="refreshDashboard()">🔄 Ανανέωση</button>
                 <button class="btn-admin" onclick="exportData()">📥 Εξαγωγή Δεδομένων</button>
-                <button class="btn-admin btn-danger" onclick="logout()">🚪 Αποσύνδεση</button>
+                <button class="btn-admin btn-danger logout-btn">🚪 Αποσύνδεση</button>
             </div>
         </div>
     </div>
@@ -244,5 +244,130 @@
     <script src="../js/analytics-secure.js"></script>
     <script src="../analytics.js"></script>
     <script src="dashboard.js"></script>
+
+    <!-- ==========================================
+         ADMIN AUTHENTICATION - SHA-256 HASHING
+         ==========================================
+         Password: Sonya6300@
+         SHA-256 Hash: 2a0c333f9e5398039340bbe2709149a950933d5ffa15408c8310af011da9306e
+         ========================================== -->
+    <script>
+    const ADMIN_PASSWORD_HASH = "2a0c333f9e5398039340bbe2709149a950933d5ffa15408c8310af011da9306e";
+
+    /**
+     * Hash password using SHA-256
+     * @param {string} password - Password to hash
+     * @returns {Promise<string>} - Hex string of hash
+     */
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    /**
+     * Check admin password
+     * @returns {Promise<boolean>} - True if authenticated
+     */
+    async function checkAdminPassword() {
+        const password = prompt("🔒 Εισάγετε κωδικό διαχειριστή:");
+
+        if (!password) {
+            alert('❌ Απαιτείται κωδικός!');
+            window.location.href = '../index.html';
+            return false;
+        }
+
+        const hashedInput = await hashPassword(password);
+
+        if (hashedInput === ADMIN_PASSWORD_HASH) {
+            sessionStorage.setItem('admin-auth', 'true');
+            sessionStorage.setItem('admin-login-time', Date.now());
+            console.log('✅ Admin authenticated');
+            return true;
+        } else {
+            alert('❌ Λάθος κωδικός!');
+            window.location.href = '../index.html';
+            return false;
+        }
+    }
+
+    /**
+     * Check if admin is authenticated
+     * @returns {boolean} - True if authenticated and session valid
+     */
+    function isAuthenticated() {
+        const auth = sessionStorage.getItem('admin-auth');
+        const loginTime = sessionStorage.getItem('admin-login-time');
+
+        if (auth !== 'true') {
+            return false;
+        }
+
+        // Check if session is still valid (4 hours)
+        if (loginTime) {
+            const fourHours = 4 * 60 * 60 * 1000;
+            const now = Date.now();
+            if (now - parseInt(loginTime) > fourHours) {
+                // Session expired
+                sessionStorage.removeItem('admin-auth');
+                sessionStorage.removeItem('admin-login-time');
+                alert('⏰ Η συνεδρία σας έληξε. Παρακαλώ συνδεθείτε ξανά.');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Logout function
+     */
+    function logout() {
+        if (confirm('Θέλετε να αποσυνδεθείτε;')) {
+            sessionStorage.removeItem('admin-auth');
+            sessionStorage.removeItem('admin-login-time');
+            console.log('🚪 Admin logged out');
+            window.location.href = '../index.html';
+        }
+    }
+
+    // ==========================================
+    // AUTHENTICATION CHECK ON PAGE LOAD
+    // ==========================================
+
+    // Check authentication on page load
+    if (!isAuthenticated()) {
+        checkAdminPassword().then(success => {
+            if (success) {
+                // Load dashboard content
+                if (typeof loadDashboard === 'function') {
+                    loadDashboard();
+                }
+            }
+        });
+    } else {
+        // Already authenticated, load dashboard
+        if (typeof loadDashboard === 'function') {
+            loadDashboard();
+        }
+    }
+
+    // ==========================================
+    // LOGOUT BUTTON HANDLER
+    // ==========================================
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', logout);
+        }
+    });
+
+    console.log('🔒 SHA-256 authentication loaded');
+    console.log('⏰ Session expires in 4 hours');
+    </script>
 </body>
 </html>
