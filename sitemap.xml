@@ -87,12 +87,53 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Electrician detail page template - Medium priority -->
+  <!-- Individual Electrician Pages - High priority for local business SEO -->
+  <!-- Κώστας Ηλεκτρολογικές - Καλαμαριά -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=1</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Νίκος Παπαδόπουλος - Πανόραμα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=2</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Γιώργος Ηλεκτρικές Εγκαταστάσεις - Πυλαία -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=3</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Δημήτρης Βασιλείου - Καλαμαριά -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=4</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Αντώνης Θεοδώρου - Πανόραμα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=5</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Electrician detail page template - Lower priority -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html</loc>
     <lastmod>2025-11-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
