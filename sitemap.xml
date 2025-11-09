@@ -88,7 +88,7 @@
   </url>
 
   <!-- Individual Electrician Pages - High priority for local business SEO -->
-  <!-- Κώστας Ηλεκτρολογικές - Καλαμαριά -->
+  <!-- Ο ΖΗΣΗΣ - Καλαμαριά -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=1</loc>
     <lastmod>2025-11-10</lastmod>
@@ -96,7 +96,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Νίκος Παπαδόπουλος - Πανόραμα -->
+  <!-- ΧΑΡΕΣ ΜΙΧΑΛΗΣ & ΧΡΗΣΤΟΣ - Καλαμαριά -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=2</loc>
     <lastmod>2025-11-10</lastmod>
@@ -104,7 +104,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Γιώργος Ηλεκτρικές Εγκαταστάσεις - Πυλαία -->
+  <!-- Ναλμπαντίδης Χαράλαμπος Α. - Καλαμαριά -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=3</loc>
     <lastmod>2025-11-10</lastmod>
@@ -112,7 +112,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Δημήτρης Βασιλείου - Καλαμαριά -->
+  <!-- Χαμαλέλλης Μιχαήλ Ι - Καλαμαριά -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=4</loc>
     <lastmod>2025-11-10</lastmod>
@@ -120,9 +120,121 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Αντώνης Θεοδώρου - Πανόραμα -->
+  <!-- ELECTRIC LINES - ΚΟΥΚΟΥΜΑΚΑΣ ΝΙΚΟΣ - Πυλαία -->
   <url>
     <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=5</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΛΕΜΠΕΡΟΣ Χ ΚΑΙ ΣΙΑ ΕΕ - Πυλαία -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=6</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ποιμενίδης Χαράλαμπος Γ - Τούμπα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=7</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Στρίβας Σωτήριος Ν - Τούμπα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=8</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Κεχαγιάς Νικόλαος Γ. - Τούμπα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=9</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΙΩΣΗΦΙΔΗΣ - Πανόραμα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=11</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΠΑΝΤΑΖΗΣ ΓΕΩΡΓΙΟΣ - PROELECTRIC - Πανόραμα -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=12</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΚΟΥΚΟΥΛΑΣ ΓΕΩΡΓΙΟΣ - Σταυρούπολη -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=13</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΤΗΛΑΒΕΡΙΔΗΣ ΚΩΝΣΤΑΝΤΙΝΟΣ - Σταυρούπολη -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=14</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΤΣΟΜΛΕΚΤΣΗΣ ΑΝΑΣΤΑΣΙΟΣ - Σταυρούπολη -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=15</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΜΠΑΚΙΡΑΣ Χ. ΓΕΩΡΓΙΟΣ - Θεσσαλονίκη Κέντρο -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=16</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΓΕΡΑΣΙΜΟΠΟΥΛΟΣ ΝΕΣΤΩΡ - NESTOR ELECTRIC - Θεσσαλονίκη Κέντρο -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=17</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΜΑΝΩΛΑΣ & ΣΥΝΕΡΓΑΤΕΣ - Θεσσαλονίκη Κέντρο -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=18</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CLIMA GAS - Θεσσαλονίκη Κέντρο -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=19</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ΘΟΔΩΡΗΣ ΙΩΑΝΝΗΣ - Θεσσαλονίκη Κέντρο -->
+  <url>
+    <loc>https://YOUR-SITE-URL.netlify.app/electrician-detail.html?id=20</loc>
     <lastmod>2025-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
