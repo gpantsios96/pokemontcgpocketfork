@@ -1,110 +1,61 @@
-// Analytics tracking for electricians directory
-// Stores data in localStorage since we don't have a backend yet
+// ==========================================
+// ANALYTICS - COMPATIBILITY LAYER
+// ==========================================
+//
+// This file now acts as a compatibility layer for existing code.
+// All actual analytics operations are handled by analytics-secure.js
+// which provides Base64 obfuscation for data protection.
+//
+// IMPORTANT: Include analytics-secure.js BEFORE this file in HTML:
+// <script src="js/analytics-secure.js"></script>
+// <script src="analytics.js"></script>
+// ==========================================
 
+// Legacy key (no longer used, but kept for reference)
 const ANALYTICS_KEY = 'electrician-analytics';
 
-// Get current month in format "2025-11"
-function getCurrentMonthKey() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    return `${year}-${month}`;
-}
+// Migrate old data to new secure format if exists
+function migrateOldAnalytics() {
+    const oldData = localStorage.getItem(ANALYTICS_KEY);
+    if (oldData) {
+        try {
+            const parsed = JSON.parse(oldData);
+            // Check if secure analytics already has data
+            const secureData = loadAnalytics();
 
-// Load analytics from localStorage
-function loadAnalytics() {
-    try {
-        const data = localStorage.getItem(ANALYTICS_KEY);
-        if (!data) {
-            return {};
+            // If secure storage is empty, migrate old data
+            if (Object.keys(secureData.electricians || {}).length === 0) {
+                secureData.electricians = parsed;
+                saveAnalytics(secureData);
+                console.log('✅ Old analytics data migrated to secure storage');
+            }
+
+            // Remove old insecure data
+            localStorage.removeItem(ANALYTICS_KEY);
+        } catch (e) {
+            console.error('Migration error:', e);
         }
-        return JSON.parse(data);
-    } catch (error) {
-        console.error('Σφάλμα φόρτωσης analytics:', error);
-        return {};
     }
 }
 
-// Save analytics to localStorage
-function saveAnalytics(analytics) {
-    try {
-        localStorage.setItem(ANALYTICS_KEY, JSON.stringify(analytics));
-        console.log('Analytics αποθηκεύτηκαν:', analytics);
-    } catch (error) {
-        console.error('Σφάλμα αποθήκευσης analytics:', error);
-    }
+// Run migration check on load
+if (typeof loadAnalytics === 'function' && typeof saveAnalytics === 'function') {
+    migrateOldAnalytics();
+} else {
+    console.warn('⚠️ Secure analytics not loaded! Include js/analytics-secure.js first.');
 }
 
-// Initialize electrician analytics if not exists
-function initializeElectricianAnalytics(analytics, electricianId) {
-    if (!analytics[electricianId]) {
-        analytics[electricianId] = {
-            totalViews: 0,
-            totalPhoneClicks: 0,
-            monthlyViews: {},
-            monthlyPhoneClicks: {}
-        };
-    }
-    return analytics;
-}
-
-// Track when an electrician listing is viewed
-function trackListingView(electricianId) {
-    const analytics = loadAnalytics();
-    initializeElectricianAnalytics(analytics, electricianId);
-
-    const monthKey = getCurrentMonthKey();
-
-    // Increment total views
-    analytics[electricianId].totalViews++;
-
-    // Increment monthly views
-    if (!analytics[electricianId].monthlyViews[monthKey]) {
-        analytics[electricianId].monthlyViews[monthKey] = 0;
-    }
-    analytics[electricianId].monthlyViews[monthKey]++;
-
-    saveAnalytics(analytics);
-
-    console.log(`📊 View tracked - Electrician ${electricianId}:`, {
-        totalViews: analytics[electricianId].totalViews,
-        monthlyViews: analytics[electricianId].monthlyViews[monthKey]
-    });
-
-    return analytics[electricianId];
-}
-
-// Track when phone number is clicked
-function trackPhoneClick(electricianId) {
-    const analytics = loadAnalytics();
-    initializeElectricianAnalytics(analytics, electricianId);
-
-    const monthKey = getCurrentMonthKey();
-
-    // Increment total phone clicks
-    analytics[electricianId].totalPhoneClicks++;
-
-    // Increment monthly phone clicks
-    if (!analytics[electricianId].monthlyPhoneClicks[monthKey]) {
-        analytics[electricianId].monthlyPhoneClicks[monthKey] = 0;
-    }
-    analytics[electricianId].monthlyPhoneClicks[monthKey]++;
-
-    saveAnalytics(analytics);
-
-    console.log(`📞 Phone click tracked - Electrician ${electricianId}:`, {
-        totalPhoneClicks: analytics[electricianId].totalPhoneClicks,
-        monthlyPhoneClicks: analytics[electricianId].monthlyPhoneClicks[monthKey]
-    });
-
-    return analytics[electricianId];
-}
+// ==========================================
+// COMPATIBILITY FUNCTIONS
+// These functions maintain the same API as before
+// but now use secure storage underneath
+// ==========================================
 
 // Get monthly stats for a specific electrician
 function getMonthlyStats(electricianId, month) {
     const analytics = loadAnalytics();
 
-    if (!analytics[electricianId]) {
+    if (!analytics.electricians || !analytics.electricians[electricianId]) {
         return {
             views: 0,
             phoneClicks: 0
@@ -112,29 +63,42 @@ function getMonthlyStats(electricianId, month) {
     }
 
     return {
-        views: analytics[electricianId].monthlyViews[month] || 0,
-        phoneClicks: analytics[electricianId].monthlyPhoneClicks[month] || 0
+        views: analytics.electricians[electricianId].monthlyViews[month] || 0,
+        phoneClicks: analytics.electricians[electricianId].monthlyPhoneClicks[month] || 0
     };
 }
 
-// Get all stats for an electrician
-function getElectricianStats(electricianId) {
-    const analytics = loadAnalytics();
-    return analytics[electricianId] || {
-        totalViews: 0,
-        totalPhoneClicks: 0,
-        monthlyViews: {},
-        monthlyPhoneClicks: {}
-    };
-}
-
-// Get stats for all electricians
+// Get all stats (returns all electricians data)
 function getAllStats() {
-    return loadAnalytics();
+    const analytics = loadAnalytics();
+    return analytics.electricians || {};
 }
 
 // Clear all analytics (for testing/reset)
 function clearAnalytics() {
-    localStorage.removeItem(ANALYTICS_KEY);
-    console.log('Analytics cleared');
+    if (typeof clearAllAnalytics === 'function') {
+        clearAllAnalytics();
+    } else {
+        localStorage.removeItem(ANALYTICS_KEY);
+        console.log('Analytics cleared (old method)');
+    }
 }
+
+// Export function (useful for admin dashboard)
+function exportAnalyticsToJSON() {
+    if (typeof exportAnalytics === 'function') {
+        return exportAnalytics();
+    }
+    return JSON.stringify(getAllStats(), null, 2);
+}
+
+// Import function (useful for admin dashboard)
+function importAnalyticsFromJSON(jsonString) {
+    if (typeof importAnalytics === 'function') {
+        return importAnalytics(jsonString);
+    }
+    return false;
+}
+
+console.log('📊 Analytics compatibility layer loaded');
+
