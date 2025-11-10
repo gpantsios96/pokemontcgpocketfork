@@ -111,6 +111,10 @@ button:active, a:active {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-title:active {
@@ -131,6 +135,10 @@ button:active, a:active {
     flex-shrink: 0;
     transition: background 0.2s;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .emergency-btn:active {
