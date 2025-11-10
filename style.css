@@ -37,23 +37,24 @@ body {
     image-rendering: -webkit-optimize-contrast;
 }
 
-/* Mobile optimization - zoomed out for better grid visibility */
+/* Mobile optimization - significantly zoomed out for visibility */
 @media (max-width: 768px) {
     body {
-        background-size: 150%; /* Zoom out - shows more of grid pattern */
+        background-size: 200%; /* Much more zoom out - grid more visible */
         background-position: center center;
         background-attachment: scroll; /* Better performance on mobile */
     }
 
     .hero {
-        background: rgba(255, 255, 255, 0.92) !important;
+        background: linear-gradient(37deg, rgba(158, 161, 163, 0.92) 0%, rgba(154, 166, 156, 0.92) 43%, rgba(222, 222, 222, 0.92) 100%);
     }
 }
 
-/* Small phones - more zoom out for better detail */
+/* Small phones - even more zoom out for visibility */
 @media (max-width: 480px) {
     body {
-        background-size: 170%; /* More zoom out on small screens */
+        background-size: 250%; /* Maximum zoom out for small screens */
+        background-position: center top;
     }
 }
 
@@ -160,6 +161,16 @@ button:active, a:active {
     -webkit-backdrop-filter: blur(8px);
     padding: 10px 20px;
     border-radius: 8px;
+}
+
+/* Mobile - allow wrapping and reduce size */
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 14px;
+        white-space: normal;
+        padding: 8px 12px;
+        line-height: 1.3;
+    }
 }
 
 .header-title:active {
@@ -281,8 +292,8 @@ button:active, a:active {
    ========================================== */
 
 .hero {
-    /* More transparent - grid visible through search section */
-    background: rgba(255, 255, 255, 0.85) !important;
+    /* Gradient background for search section */
+    background: linear-gradient(37deg, rgba(158, 161, 163, 0.9) 0%, rgba(154, 166, 156, 0.9) 43%, rgba(222, 222, 222, 0.9) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -293,7 +304,7 @@ button:active, a:active {
 
 @supports not (backdrop-filter: blur(10px)) {
     .hero {
-        background: rgba(255, 255, 255, 0.92) !important;
+        background: linear-gradient(37deg, rgba(158, 161, 163, 0.95) 0%, rgba(154, 166, 156, 0.95) 43%, rgba(222, 222, 222, 0.95) 100%);
     }
 }
 
@@ -398,9 +409,10 @@ button:active, a:active {
 
 .rotating-subtitle {
     font-size: 14px;
-    color: #6b7280;
+    color: #ffffff;
     margin-bottom: 20px;
     text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .rotating-spotlight {
@@ -448,21 +460,21 @@ button:active, a:active {
    ========================================== */
 
 .electrician-card {
-    /* Enhanced with backdrop blur */
-    background: rgba(255, 255, 255, 0.95);
+    /* Gradient background for cards */
+    background: linear-gradient(37deg, rgba(158, 161, 163, 0.95) 0%, rgba(154, 166, 156, 0.95) 43%, rgba(222, 222, 222, 0.95) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
 }
 
 @supports not (backdrop-filter: blur(10px)) {
     .electrician-card {
-        background: rgba(255, 255, 255, 0.98);
+        background: linear-gradient(37deg, rgba(158, 161, 163, 0.98) 0%, rgba(154, 166, 156, 0.98) 43%, rgba(222, 222, 222, 0.98) 100%);
     }
 }
 
