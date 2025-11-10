@@ -58,19 +58,24 @@ function normalizeGreekText(text) {
         .replace(/ΰ/g, 'υ');
 }
 
-// Sort electricians by tier (premium > featured > free)
-function sortElectriciansByTier(electricians) {
-    const tierOrder = {
-        'premium': 1,
-        'featured': 2,
-        'free': 3
-    };
-
+// Sort electricians by view count (lowest views first for fair rotation)
+function sortElectriciansByViews(electricians) {
     return [...electricians].sort((a, b) => {
-        const tierA = tierOrder[a.tier] || 999;
-        const tierB = tierOrder[b.tier] || 999;
-        return tierA - tierB;
+        // Get view counts from analytics (default to 0 for new listings)
+        const statsA = getElectricianStats(a.id);
+        const statsB = getElectricianStats(b.id);
+        const viewsA = statsA.totalViews || 0;
+        const viewsB = statsB.totalViews || 0;
+
+        // Sort by views ascending (lowest views first)
+        return viewsA - viewsB;
     });
+}
+
+// Legacy function kept for backwards compatibility
+function sortElectriciansByTier(electricians) {
+    // Now uses view-based sorting instead
+    return sortElectriciansByViews(electricians);
 }
 
 // Filter electricians based on search term
