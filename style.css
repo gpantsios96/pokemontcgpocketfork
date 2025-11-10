@@ -661,6 +661,23 @@ footer p {
     margin-bottom: 8px;
 }
 
+/* Footer services links */
+.footer-services a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.footer-services a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-services a:active {
+    opacity: 0.7;
+}
+
 .footer-section p {
     color: #9ca3af;
     font-size: 14px;
