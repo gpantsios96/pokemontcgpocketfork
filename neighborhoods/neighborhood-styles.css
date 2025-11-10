@@ -202,6 +202,23 @@
     line-height: 1.6;
 }
 
+/* FAQ link styling */
+.faq-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.faq-link:hover {
+    border-bottom-color: #2563eb;
+}
+
+.faq-link:active {
+    opacity: 0.8;
+}
+
 /* Nearby Neighborhoods */
 .nearby {
     background: white;
