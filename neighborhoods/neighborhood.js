@@ -101,8 +101,8 @@ function updatePageContent(neighborhood) {
         metaDesc.content = neighborhood.description;
     }
 
-    // Update H1
-    const h1 = document.querySelector('h1');
+    // Update H1 (select the one in the hero section specifically)
+    const h1 = document.querySelector('.neighborhood-hero h1');
     if (h1) {
         h1.textContent = `Ηλεκτρολόγος ${neighborhood.name} - Βρείτε Έμπειρους Επαγγελματίες`;
     }
