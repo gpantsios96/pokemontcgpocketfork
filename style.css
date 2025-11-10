@@ -55,27 +55,31 @@ button:active, a:active {
 }
 
 /* ==========================================
-   HEADER - MOBILE NAVIGATION
+   MAIN BLUE HEADER
    ========================================== */
 
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
+.main-header {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 12px 16px;
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Back button - left side */
 .back-button {
     width: 44px;
     height: 44px;
-    background: #f3f4f6;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     border: none;
     border-radius: 8px;
     font-size: 20px;
@@ -88,7 +92,7 @@ button:active, a:active {
 }
 
 .back-button:active {
-    background: #e5e7eb;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Hide back button on homepage but keep space */
@@ -96,44 +100,46 @@ button:active, a:active {
     visibility: hidden;
 }
 
-/* Logo - center, clickable */
-.site-logo {
+/* Header title - center */
+.header-title {
     flex: 1;
     text-align: center;
     font-size: 18px;
     font-weight: 700;
-    color: #2563eb;
+    color: white;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.site-logo:active {
-    opacity: 0.7;
+.header-title:active {
+    opacity: 0.8;
 }
 
-/* Emergency button - right side */
-.emergency-header-btn {
-    width: 44px;
+/* Emergency 112 button - right side */
+.emergency-btn {
     height: 44px;
+    padding: 0 16px;
     background: #ef4444;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
     flex-shrink: 0;
     transition: background 0.2s;
+    white-space: nowrap;
 }
 
-.emergency-header-btn:active {
+.emergency-btn:active {
     background: #dc2626;
 }
 
 /* Desktop adjustments */
 @media (min-width: 768px) {
-    .site-logo {
+    .header-title {
         font-size: 24px;
     }
 
@@ -146,6 +152,10 @@ button:active, a:active {
     .back-button::after {
         content: " Πίσω";
         margin-left: 4px;
+    }
+
+    .emergency-btn {
+        font-size: 18px;
     }
 
     .emergency-header-btn {
@@ -188,25 +198,7 @@ button:active, a:active {
     }
 }
 
-/* Old header styles (for hero section) */
-header {
-    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-    color: white;
-    padding: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    line-height: 1.2;
-}
-
-.tagline {
-    font-size: 14px;
-    opacity: 0.9;
-}
+/* Old header styles - REMOVED (now using .main-header) */
 
 /* ==========================================
    CONTAINER
