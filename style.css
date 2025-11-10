@@ -24,25 +24,36 @@ body {
                  'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #1f2937;
-    background-color: #f9fafb;
-    /* Professional grid background - try multiple path formats for compatibility */
+    background-color: #1a4d7a;
+    /* Professional grid background */
     background-image: url('images/background.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
     padding-bottom: 40px;
+    /* Optimize image rendering */
+    image-rendering: -webkit-optimize-contrast;
 }
 
-/* Mobile optimization - scroll instead of fixed */
+/* Mobile optimization - zoomed out for better grid visibility */
 @media (max-width: 768px) {
     body {
-        background-attachment: scroll;
+        background-size: 150%; /* Zoom out - shows more of grid pattern */
+        background-position: center center;
+        background-attachment: scroll; /* Better performance on mobile */
     }
 
     .hero {
         background: rgba(255, 255, 255, 0.92) !important;
+    }
+}
+
+/* Small phones - more zoom out for better detail */
+@media (max-width: 480px) {
+    body {
+        background-size: 170%; /* More zoom out on small screens */
     }
 }
 
