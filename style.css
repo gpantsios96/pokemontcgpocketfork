@@ -142,41 +142,48 @@ button:active, a:active {
     visibility: hidden;
 }
 
-/* Header title - center */
-.header-title {
+/* Logo link - center */
+.logo-link {
     flex: 1;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Light blur background for header text readability */
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 10px 20px;
-    border-radius: 8px;
+    text-decoration: none;
+    line-height: 0;
 }
 
-/* Mobile - allow wrapping and reduce size */
-@media (max-width: 480px) {
-    .header-title {
-        font-size: 14px;
-        white-space: normal;
-        padding: 8px 12px;
-        line-height: 1.3;
+.site-logo {
+    height: 50px;
+    width: auto;
+    max-width: 250px;
+    display: block;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.site-logo:hover {
+    opacity: 0.85;
+}
+
+.site-logo:active {
+    transform: scale(0.98);
+}
+
+/* Tablet optimization */
+@media (max-width: 768px) {
+    .site-logo {
+        height: 40px;
+        max-width: 200px;
     }
 }
 
-.header-title:active {
-    opacity: 0.8;
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .site-logo {
+        height: 35px;
+        max-width: 160px;
+    }
 }
 
 /* Emergency 112 button - right side */
