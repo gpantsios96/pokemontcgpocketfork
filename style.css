@@ -91,8 +91,8 @@ button:active, a:active {
    ========================================== */
 
 .main-header {
-    /* Semi-transparent with backdrop blur - grid visible through header */
-    background: rgba(25, 50, 120, 0.75) !important;
+    /* Semi-transparent with backdrop blur - matching body color #1a4d7a */
+    background: rgba(26, 77, 122, 0.85) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     color: white;
@@ -103,7 +103,7 @@ button:active, a:active {
 /* Fallback for browsers without backdrop-filter support */
 @supports not (backdrop-filter: blur(12px)) {
     .main-header {
-        background: rgba(25, 50, 120, 0.9) !important;
+        background: rgba(26, 77, 122, 0.95) !important;
     }
 }
 
