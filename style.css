@@ -48,7 +48,8 @@ body {
     }
 
     .hero {
-        background: linear-gradient(37deg, rgba(158, 161, 163, 0.92) 0%, rgba(154, 166, 156, 0.92) 43%, rgba(222, 222, 222, 0.92) 100%);
+        background: rgba(245, 245, 245, 0.95) !important;
+        padding: 20px 16px;
     }
 }
 
@@ -301,8 +302,8 @@ button:active, a:active {
    ========================================== */
 
 .hero {
-    /* Gradient background for search section */
-    background: linear-gradient(37deg, rgba(158, 161, 163, 0.9) 0%, rgba(154, 166, 156, 0.9) 43%, rgba(222, 222, 222, 0.9) 100%);
+    /* Light gray background for search section */
+    background: rgba(245, 245, 245, 0.92) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -313,7 +314,7 @@ button:active, a:active {
 
 @supports not (backdrop-filter: blur(10px)) {
     .hero {
-        background: linear-gradient(37deg, rgba(158, 161, 163, 0.95) 0%, rgba(154, 166, 156, 0.95) 43%, rgba(222, 222, 222, 0.95) 100%);
+        background: rgba(245, 245, 245, 0.95) !important;
     }
 }
 
