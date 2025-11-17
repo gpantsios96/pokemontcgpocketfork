@@ -1,0 +1,311 @@
+[
+  {
+    "id": 1,
+    "name": "Ο ΖΗΣΗΣ",
+    "phone": "693 804 6173",
+    "neighborhood": "Καλαμαριά",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα",
+      "Συστήματα & Υπηρεσίες Ασφάλειας"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 2,
+    "name": "ΧΑΡΕΣ ΜΙΧΑΛΗΣ & ΧΡΗΣΤΟΣ",
+    "phone": "694 516 3356",
+    "neighborhood": "Καλαμαριά",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 3,
+    "name": "Ναλμπαντίδης Χαράλαμπος Α.",
+    "phone": "2310-447301",
+    "neighborhood": "Καλαμαριά",
+    "services": [
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 4,
+    "name": "Χαμαλέλλης Μιχαήλ Ι",
+    "phone": "2310-789456",
+    "neighborhood": "Καλαμαριά",
+    "services": [
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 5,
+    "name": "ELECTRIC LINES - ΚΟΥΚΟΥΜΑΚΑΣ ΝΙΚΟΣ",
+    "phone": "694 454 1345",
+    "neighborhood": "Πυλαία",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 6,
+    "name": "ΛΕΜΠΕΡΟΣ Χ ΚΑΙ ΣΙΑ ΕΕ",
+    "phone": "2310-951820",
+    "neighborhood": "Πυλαία",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 7,
+    "name": "Ποιμενίδης Χαράλαμπος Γ",
+    "phone": "6972016998",
+    "neighborhood": "Τούμπα",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 8,
+    "name": "Στρίβας Σωτήριος Ν",
+    "phone": "2310-937503",
+    "neighborhood": "Τούμπα",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 9,
+    "name": "Κεχαγιάς Νικόλαος Γ.",
+    "phone": "2310-942907",
+    "neighborhood": "Τούμπα",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 11,
+    "name": "ΙΩΣΗΦΙΔΗΣ",
+    "phone": "694 961 2943",
+    "neighborhood": "Πανόραμα",
+    "services": [
+      "Εγκαταστάσεις"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 12,
+    "name": "ΠΑΝΤΑΖΗΣ ΓΕΩΡΓΙΟΣ - PROELECTRIC",
+    "phone": "694 468 8529",
+    "neighborhood": "Πανόραμα",
+    "services": [
+      "Εγκαταστάσεις",
+      "24 ώρες"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 13,
+    "name": "ΚΟΥΚΟΥΛΑΣ ΓΕΩΡΓΙΟΣ",
+    "phone": "698 301 5604",
+    "neighborhood": "Σταυρούπολη",
+    "services": [
+      "Εγκαταστάσεις",
+      "24 ώρες"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 14,
+    "name": "ΤΗΛΑΒΕΡΙΔΗΣ ΚΩΝΣΤΑΝΤΙΝΟΣ",
+    "phone": "697 870 5781",
+    "neighborhood": "Σταυρούπολη",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 15,
+    "name": "ΤΣΟΜΛΕΚΤΣΗΣ ΑΝΑΣΤΑΣΙΟΣ",
+    "phone": "694 247 0423",
+    "neighborhood": "Σταυρούπολη",
+    "services": [
+      "Εγκαταστάσεις",
+      "Επισκευές"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 16,
+    "name": "ΜΠΑΚΙΡΑΣ Χ. ΓΕΩΡΓΙΟΣ",
+    "phone": "697 272 7591",
+    "neighborhood": "Θεσσαλονίκη Κέντρο",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 17,
+    "name": "ΓΕΡΑΣΙΜΟΠΟΥΛΟΣ ΝΕΣΤΩΡ - NESTOR ELECTRIC",
+    "phone": "697 585 6850",
+    "neighborhood": "Θεσσαλονίκη Κέντρο",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 18,
+    "name": "ΜΑΝΩΛΑΣ & ΣΥΝΕΡΓΑΤΕΣ",
+    "phone": "694 475 1093",
+    "neighborhood": "Θεσσαλονίκη Κέντρο",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 19,
+    "name": "CLIMA GAS",
+    "phone": "693 254 7103",
+    "neighborhood": "Θεσσαλονίκη Κέντρο",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  },
+  {
+    "id": 20,
+    "name": "ΘΟΔΩΡΗΣ ΙΩΑΝΝΗΣ",
+    "phone": "693 218 1766",
+    "neighborhood": "Θεσσαλονίκη Κέντρο",
+    "services": [
+      "Επισκευές",
+      "Εγκαταστάσεις",
+      "Θυροτηλέφωνα"
+    ],
+    "tier": "free",
+    "monthlyFee": 0,
+    "analytics": {
+      "totalViews": 0,
+      "totalPhoneClicks": 0
+    }
+  }
+]
