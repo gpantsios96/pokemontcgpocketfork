@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     setupSearchFunctionality();
     setupClickTracking();
+    setupScrollAnimations();
     loadElectricians();
 }
 
@@ -37,6 +38,36 @@ function setupSearchFunctionality() {
             handleSearch();
         }
     });
+}
+
+// Setup scroll-triggered fade-in animations for cards
+function setupScrollAnimations() {
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+                // Unobserve after animation to improve performance
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Function to observe cards - will be called after cards are rendered
+    window.observeElectricianCards = function() {
+        const cards = document.querySelectorAll('.electrician-card');
+        cards.forEach((card, index) => {
+            // Set initial opacity to 0 for fade-in effect
+            card.style.opacity = '0';
+            // Observe the card
+            observer.observe(card);
+        });
+    };
 }
 
 // Normalize Greek text (remove accents/tones for search)
@@ -369,6 +400,11 @@ function displayElectricians(electricians, searchTerm = '') {
     }).join('');
 
     electriciansList.innerHTML = countHTML + cardsHTML;
+
+    // Trigger scroll animations for cards
+    if (window.observeElectricianCards) {
+        window.observeElectricianCards();
+    }
 
     // Setup view tracking for all cards
     setupViewTracking();

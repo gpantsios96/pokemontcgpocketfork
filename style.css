@@ -302,8 +302,16 @@ button:active, a:active {
    ========================================== */
 
 .hero {
-    /* Light gray background for search section */
-    background: rgba(245, 245, 245, 0.92) !important;
+    /* Animated gradient background for search section */
+    background: linear-gradient(
+        -45deg,
+        rgba(245, 245, 245, 0.92),
+        rgba(239, 246, 255, 0.92),
+        rgba(243, 244, 246, 0.92),
+        rgba(255, 255, 255, 0.92)
+    ) !important;
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -373,6 +381,9 @@ button:active, a:active {
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary:active {
@@ -482,8 +493,11 @@ button:active, a:active {
     padding: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
 }
 
 @supports not (backdrop-filter: blur(10px)) {
@@ -508,6 +522,50 @@ button:active, a:active {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
+
+/* Shine effect on hover */
+.electrician-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.electrician-card:hover::before {
+    left: 100%;
+}
+
+/* Ensure card content stays above shine effect */
+.electrician-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fade-in animation class */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animation delays for cards */
+.electrician-card:nth-child(1) { animation-delay: 0ms; }
+.electrician-card:nth-child(2) { animation-delay: 100ms; }
+.electrician-card:nth-child(3) { animation-delay: 200ms; }
+.electrician-card:nth-child(4) { animation-delay: 300ms; }
+.electrician-card:nth-child(5) { animation-delay: 400ms; }
+.electrician-card:nth-child(6) { animation-delay: 500ms; }
+.electrician-card:nth-child(7) { animation-delay: 600ms; }
+.electrician-card:nth-child(8) { animation-delay: 700ms; }
+.electrician-card:nth-child(9) { animation-delay: 800ms; }
 
 /* ==========================================
    TIER-BASED CARD STYLES
@@ -615,6 +673,7 @@ button:active, a:active {
     gap: 8px;
     position: relative;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .electrician-phone:active {
@@ -902,12 +961,13 @@ button:focus, a:focus, input:focus {
 .skeleton {
     background: linear-gradient(
         90deg,
-        #f0f0f0 25%,
-        #e0e0e0 50%,
-        #f0f0f0 75%
+        #f0f0f0 0%,
+        #f8f8f8 20%,
+        #f0f0f0 40%,
+        #f0f0f0 100%
     );
     background-size: 200% 100%;
-    animation: loading 1.5s infinite;
+    animation: shimmer 1.5s infinite linear;
     border-radius: 8px;
     height: 120px;
     margin-bottom: 16px;
@@ -931,6 +991,34 @@ button:focus, a:focus, input:focus {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Modern Animation Keyframes */
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
 /* ==========================================
@@ -1082,33 +1170,37 @@ button:focus, a:focus, input:focus {
         padding: 26px;
     }
 
-    /* Hover effects for desktop only */
+    /* Hover effects for desktop only - Enhanced with 3D transforms */
     .electrician-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        transform: translateY(-8px) rotateX(2deg) scale(1.01);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     .electrician-card-premium:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(139, 92, 246, 0.3);
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 24px 48px rgba(139, 92, 246, 0.4);
     }
 
     .electrician-card-featured:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+        transform: translateY(-10px) scale(1.015);
+        box-shadow: 0 18px 36px rgba(251, 191, 36, 0.4);
     }
 
     .electrician-card-rotating:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        transform: translateY(-8px) rotateX(1deg);
+        box-shadow: 0 16px 32px rgba(14, 165, 233, 0.3);
     }
 
     .electrician-phone:hover {
         background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
     }
 
     .btn-primary:hover {
         background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
     }
 }
 
