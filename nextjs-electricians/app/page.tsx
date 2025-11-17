@@ -7,6 +7,20 @@ import path from 'path'
 export const dynamic = 'force-static'
 export const revalidate = false // No revalidation needed for static site
 
+interface ElectricianData {
+  id: number | string
+  name: string
+  neighborhood: string
+  phone: string
+  tier: 'premium' | 'featured' | 'free'
+  services?: string[]
+  monthlyFee?: number
+  analytics?: {
+    totalViews: number
+    totalPhoneClicks: number
+  }
+}
+
 interface Electrician {
   id: string
   name: string
@@ -20,7 +34,17 @@ interface Electrician {
 function getElectricians(): Electrician[] {
   const filePath = path.join(process.cwd(), 'public', 'data', 'electricians.json')
   const fileContents = fs.readFileSync(filePath, 'utf8')
-  return JSON.parse(fileContents)
+  const data: ElectricianData[] = JSON.parse(fileContents)
+
+  // Convert to our interface format
+  return data.map(e => ({
+    id: String(e.id),
+    name: e.name,
+    neighborhood: e.neighborhood,
+    phone: e.phone,
+    tier: e.tier,
+    services: e.services || []
+  }))
 }
 
 export default function HomePage() {
