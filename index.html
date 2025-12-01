@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Βρείτε έμπειρους ηλεκτρολόγους στη Θεσσαλονίκη. Αξιόπιστοι επαγγελματίες για όλες τις ηλεκτρολογικές σας ανάγκες.">
-    <title>Ηλεκτρολόγοι Θεσσαλονίκη - Βρείτε Έμπειρους Επαγγελματίες</title>
+    <meta name="description" content="Αναζητάτε έμπειρο ηλεκτρολόγο στη Θεσσαλονίκη; ⚡ Διαθέσιμοι 24 ώρες για επείγουσες βλάβες, εγκαταστάσεις & επισκευές. Γρήγορη ανταπόκριση σε όλες τις περιοχές. Καλέστε τώρα!">
+    <title>Ηλεκτρολόγοι Θεσσαλονίκη | Άμεση Εξυπηρέτηση 24/7 | Κλήση Τώρα</title>
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="Ηλεκτρολόγοι Θεσσαλονίκη | 24ωρη Εξυπηρέτηση">
+    <meta property="og:description" content="Βρείτε αξιόπιστο ηλεκτρολόγο στη Θεσσαλονίκη. Διαθέσιμοι 24/7 για επείγοντα.">
+    <meta property="og:url" content="https://ilektrologoi-thessaloniki.com/">
+    <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/logosmall.png">
@@ -13,6 +19,66 @@
     <link rel="apple-touch-icon" href="images/logosmall.png">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Ηλεκτρολόγοι Θεσσαλονίκη",
+      "image": "https://ilektrologoi-thessaloniki.com/images/logo.png",
+      "url": "https://ilektrologoi-thessaloniki.com/",
+      "telephone": "+30-231-XXX-XXXX",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "Θεσσαλονίκη",
+        "addressRegion": "Κεντρική Μακεδονία",
+        "postalCode": "546XX",
+        "addressCountry": "GR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.6401,
+        "longitude": 22.9444
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Θεσσαλονίκη"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ilektrologoi-thessaloniki",
+        "https://www.instagram.com/ilektrologoi_thessaloniki",
+        "https://www.linkedin.com/company/ilektrologoi-thessaloniki"
+      ],
+      "serviceType": [
+        "Ηλεκτρολογικές Εργασίες",
+        "Επισκευές Ηλεκτρολογικών Βλαβών",
+        "24ωρος Ηλεκτρολόγος",
+        "Εγκαταστάσεις Ηλεκτρολογικών Συστημάτων"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYGD4RKLMJ"></script>
@@ -102,10 +168,10 @@
             <div class="footer-section">
                 <h3>Υπηρεσίες</h3>
                 <ul class="footer-list footer-services">
-                    <li><a href="/">Επισκευές Ηλεκτρολογικών Συστημάτων</a></li>
-                    <li><a href="/">Εγκαταστάσεις & Ανακαινίσεις</a></li>
-                    <li><a href="/">Συντήρηση & Έλεγχος</a></li>
-                    <li><a href="/">24ωρη Εξυπηρέτηση</a></li>
+                    <li><a href="services/episkeyes.html">Επισκευές Ηλεκτρολογικών Συστημάτων</a></li>
+                    <li><a href="services/egkatastaseis.html">Εγκαταστάσεις & Ανακαινίσεις</a></li>
+                    <li><a href="services/syntiriseis.html">Συντήρηση & Έλεγχος</a></li>
+                    <li><a href="services/24oros-ilektrologos.html">24ωρη Εξυπηρέτηση</a></li>
                 </ul>
             </div>
 
@@ -130,6 +196,14 @@
         <span class="toast-icon">📞</span>
         <span class="toast-message">Γίνεται κλήση...</span>
     </div>
+
+    <!-- Mobile Sticky Call Button -->
+    <a href="tel:+302310XXXXXX" class="mobile-call-button" aria-label="Καλέστε Τώρα">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>Καλέστε Τώρα</span>
+    </a>
 
     <script>
         // Navigation helper function

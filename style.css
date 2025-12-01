@@ -1233,6 +1233,87 @@ button:focus, a:focus, input:focus {
 }
 
 /* ==========================================
+   MOBILE STICKY CALL NOW BUTTON
+   ========================================== */
+
+/* Mobile Sticky Call Now Button */
+.mobile-call-button {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+
+  padding: 16px 32px;
+  border-radius: 50px;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-call-button svg {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.mobile-call-button:hover,
+.mobile-call-button:active {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.7),
+                0 0 0 10px rgba(37, 211, 102, 0.2);
+  }
+  100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  }
+}
+
+/* Show only on mobile devices */
+@media (max-width: 768px) {
+  .mobile-call-button {
+    display: inline-flex;
+  }
+}
+
+/* Adjust position for very small screens */
+@media (max-width: 380px) {
+  .mobile-call-button {
+    padding: 14px 24px;
+    font-size: 16px;
+    bottom: 15px;
+  }
+
+  .mobile-call-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ==========================================
    DETAIL PAGE STYLES
    ========================================== */
 
